@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Sute case study | Clay Stan</title>
+<meta name="description" content="How Clay Stan generated 101 investor replies (41 positive) from $5.5B+ in AUM for Sute's $9M seed round in two weeks." />
+
+<link rel="preconnect" href="https://api.fontshare.com" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,600,700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<link rel="icon" type="image/png" href="../logos/clay-stan-light.png" />
+
+<style>
+  :root{
+    --bg:#F6F4EE; --ink:#0F0F10; --ink-2:#2A2A2C; --muted:#6E6E73;
+    --line:#E4E0D7; --line-2:#D8D3C7; --card:#FFFFFF;
+    --accent:#FF5A1F;
+    --maxw:1080px;
+    --pad:clamp(16px, 5vw, 56px);
+    --sans:'Vanilla Sans','Satoshi','Inter',system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    --serif:'Instrument Serif','Times New Roman',serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{
+    background-color:var(--bg);
+    background-image:
+      linear-gradient(to right, rgba(15,15,16,.022) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(15,15,16,.022) 1px, transparent 1px);
+    background-size: 96px 96px;
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:16px; line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--ink); text-decoration:none}
+  img{max-width:100%; display:block}
+
+  .wrap{max-width:var(--maxw); margin:0 auto; padding-left:var(--pad); padding-right:var(--pad)}
+  .wrap-wide{max-width:1240px; margin:0 auto; padding-left:var(--pad); padding-right:var(--pad)}
+
+  /* Nav */
+  .nav{ position:sticky; top: clamp(10px,1.4vw,18px); z-index:50; padding: 0 var(--pad) }
+  .nav-inner{
+    max-width: 980px; margin: 0 auto; height: 64px;
+    padding: 6px 6px 6px 16px;
+    background: rgba(255,255,255,.78);
+    backdrop-filter: blur(20px) saturate(150%);
+    border:1px solid rgba(15,15,16,.08); border-radius: 999px;
+    box-shadow: 0 8px 28px -10px rgba(15,15,16,.10), 0 1px 0 rgba(255,255,255,.5) inset;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .brand{display:inline-flex; align-items:center; gap:10px}
+  .brand img{ height:44px; width:auto }
+  .nav-back{
+    display:inline-flex; align-items:center; gap:8px;
+    padding: 9px 16px; border:1px solid var(--line-2); border-radius:999px;
+    font-size:14px; font-weight:500; color:var(--ink-2);
+    transition: background .2s, color .2s, border-color .2s;
+  }
+  .nav-back:hover{background:#fff; color:var(--ink); border-color:var(--ink)}
+
+  /* Header */
+  .cs-header{ padding: clamp(48px, 7vw, 96px) 0 clamp(36px, 5vw, 64px); border-bottom:1px solid var(--line) }
+  .crumb{
+    font-family:var(--sans); font-weight:500; font-size:11px;
+    letter-spacing:.18em; text-transform:uppercase; color:var(--muted);
+    display:inline-flex; align-items:center; gap:8px;
+  }
+  .crumb .dot{width:6px; height:6px; border-radius:50%; background:var(--accent)}
+  .crumb a{color:var(--muted); border-bottom:1px solid var(--line-2)}
+  .crumb a:hover{color:var(--ink); border-color:var(--ink)}
+
+  .cs-meta{
+    display:flex; gap:18px; flex-wrap:wrap; margin-top: clamp(14px, 2vw, 22px);
+    font-family:var(--sans); font-weight:400; font-size:12px; color:var(--muted); letter-spacing:.04em;
+  }
+  .cs-meta b{color:var(--ink); font-weight:600; letter-spacing:0}
+
+  h1.cs-title{
+    margin: clamp(18px, 3vw, 28px) 0 0;
+    font-family:var(--sans); font-weight:500;
+    font-size: clamp(36px, 5.6vw, 76px);
+    letter-spacing: -.025em; line-height:1.02;
+  }
+  h1.cs-title em{ font-family:var(--serif); font-style:italic; font-weight:400 }
+  .cs-sub{
+    margin-top: clamp(14px, 2vw, 22px);
+    font-size: clamp(17px, 1.5vw, 19px); line-height:1.55; color:var(--ink-2);
+    max-width: 60ch;
+  }
+
+  /* Tag chips */
+  .tags{ display:flex; flex-wrap:wrap; gap:6px; margin: 18px 0 }
+  .tags span{
+    font-size:11px; font-weight:500; padding: 5px 10px;
+    background:#fff; border:1px solid var(--line); border-radius:999px;
+    color: var(--ink-2);
+  }
+
+  /* Headline metrics */
+  .cs-stats{
+    display:grid; grid-template-columns: repeat(5, 1fr); gap: clamp(12px, 2vw, 20px);
+    margin-top: clamp(28px, 4vw, 44px);
+  }
+  @media (max-width: 980px){ .cs-stats{ grid-template-columns: repeat(3, 1fr) } }
+  @media (max-width: 600px){ .cs-stats{ grid-template-columns: repeat(2, 1fr) } }
+  .cs-stat{ padding: 22px 0; border-top: 1px solid var(--ink) }
+  .cs-stat .n{
+    font-family:var(--sans); font-weight:500;
+    font-size: clamp(30px, 3.6vw, 48px);
+    line-height:.95; letter-spacing:-.035em;
+  }
+  .cs-stat .n sup{ font-size:.5em; font-weight:600; color:var(--accent); margin-left:3px }
+  .cs-stat .l{ font-weight:600; font-size:13px; margin-top:6px }
+  .cs-stat .c{ font-size:12px; color:var(--muted); margin-top:2px }
+
+  /* Body */
+  .cs{ padding: clamp(48px, 6vw, 80px) 0 clamp(64px, 8vw, 96px) }
+  .cs h2{
+    font-family:var(--sans); font-weight:500;
+    font-size: clamp(26px, 3.4vw, 40px); letter-spacing:-.02em; line-height:1.05;
+    margin: clamp(48px, 6vw, 72px) 0 clamp(14px, 2vw, 22px);
+  }
+  .cs h2 em{ font-family:var(--serif); font-style:italic; font-weight:400 }
+  .cs h2:first-of-type{ margin-top: 0 }
+  .cs h3{
+    font-family:var(--sans); font-weight:600;
+    font-size: 18px; letter-spacing:-.005em;
+    margin: 28px 0 8px;
+  }
+  .cs p, .cs li{ color:var(--ink-2); font-size:17px; line-height:1.7 }
+  .cs p{ margin: 0 0 16px }
+  .cs ul, .cs ol{ padding-left: 22px; margin: 0 0 18px }
+  .cs li{ margin-bottom: 8px }
+  .cs strong{ color:var(--ink); font-weight:600 }
+
+  /* Trust bar -- total AUM reached */
+  .trust-bar{
+    margin: clamp(28px, 4vw, 40px) 0;
+    padding: clamp(24px, 3vw, 32px) clamp(28px, 4vw, 40px);
+    border-radius: 18px;
+    background: var(--ink); color:#fff;
+    display: grid; grid-template-columns: 1.4fr 1fr; gap: 24px; align-items:center;
+    position: relative; overflow: hidden;
+  }
+  .trust-bar::before{
+    content:""; position:absolute; inset:auto -10% -50% auto; width:60%; aspect-ratio:1;
+    background: radial-gradient(closest-side, rgba(255,90,31,.22), transparent 70%);
+    pointer-events:none;
+  }
+  @media (max-width: 720px){ .trust-bar{ grid-template-columns: 1fr } }
+  .trust-bar .label{
+    font-family:var(--sans); font-weight:500; font-size:11px;
+    letter-spacing:.18em; text-transform:uppercase; color:#cfcdc4;
+    position:relative;
+  }
+  .trust-bar .total{
+    font-family:var(--sans); font-weight:500;
+    font-size: clamp(40px, 5.4vw, 64px); line-height:1; letter-spacing:-.03em;
+    margin-top: 8px; position:relative;
+  }
+  .trust-bar .total .accent{ color: var(--accent) }
+  .trust-bar .total sup{ font-size:.45em; font-weight:600; color: var(--accent); margin-left:4px; vertical-align:super }
+  .trust-bar .desc{ color:#cfcdc4; font-size:14px; line-height:1.55; margin: 0; position:relative }
+  .trust-bar .desc b{ color:#fff; font-weight:600 }
+
+  /* VC replies wall */
+  .vc-wall{
+    display:grid; grid-template-columns: repeat(2, 1fr); gap: clamp(16px, 2vw, 22px);
+    margin: clamp(20px, 3vw, 32px) 0;
+  }
+  @media (max-width: 720px){ .vc-wall{ grid-template-columns: 1fr } }
+  .vc-card{
+    background:#fff; border:1px solid var(--line); border-radius: 18px;
+    padding: clamp(16px, 2vw, 22px);
+    display:flex; flex-direction:column; gap:14px;
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  }
+  .vc-card:hover{
+    transform: translateY(-3px);
+    border-color: var(--line-2);
+    box-shadow: 0 22px 44px -22px rgba(15,15,16,.18);
+  }
+  .vc-card.featured{
+    grid-column: 1 / -1;
+    background: linear-gradient(180deg, #fff 0%, #FAF8F2 100%);
+  }
+  .vc-head{ display:flex; align-items:flex-start; justify-content:space-between; gap:14px; flex-wrap:wrap }
+  .vc-head .firm{
+    font-family:var(--sans); font-weight:600;
+    font-size: clamp(18px, 2vw, 22px); letter-spacing:-.01em;
+    color: var(--ink);
+  }
+  .vc-card.featured .vc-head .firm{ font-size: clamp(22px, 2.4vw, 28px) }
+  .vc-head .aum{
+    display:inline-flex; align-items:center; gap:6px;
+    background: rgba(255,90,31,.08);
+    color: var(--accent);
+    border:1px solid rgba(255,90,31,.18);
+    border-radius: 999px; padding: 6px 12px;
+    font-size: 12px; font-weight:600; letter-spacing:.02em;
+    white-space: nowrap;
+  }
+  .vc-head .aum-label{
+    font-family:var(--sans); font-weight:500; font-size: 10.5px;
+    color: var(--muted); letter-spacing:.16em; text-transform:uppercase;
+  }
+  .vc-shot{
+    background:#FAF8F2;
+    border:1px solid var(--line);
+    border-radius: 12px;
+    padding: 10px;
+    overflow: hidden;
+  }
+  .vc-shot img{
+    width:100%; height:auto; display:block;
+    border-radius: 6px;
+  }
+
+  /* Tools / stack list */
+  .tools{
+    background:#fff; border:1px solid var(--line); border-radius: 16px;
+    padding: clamp(20px, 3vw, 28px);
+    margin: clamp(20px, 3vw, 32px) 0;
+  }
+  .tools h3{ margin: 0 0 14px }
+  .tools ul{ margin:0; padding-left:0; list-style:none; display:grid; grid-template-columns: 1fr 1fr; gap: 10px 24px }
+  @media (max-width: 720px){ .tools ul{ grid-template-columns: 1fr } }
+  .tools li{
+    font-size: 14px; line-height: 1.5; color: var(--ink-2);
+    padding-left: 18px; position: relative; margin: 0;
+  }
+  .tools li::before{
+    content:""; position:absolute; left:0; top:.6em;
+    width:6px; height:6px; border-radius:50%; background: var(--accent);
+  }
+  .tools li b{ color: var(--ink); font-weight:600 }
+
+  /* Email template card -- typeset like the real outbound message */
+  .email-card{
+    background:#fff; border:1px solid var(--line); border-radius: 16px;
+    padding: clamp(22px, 3vw, 32px);
+    margin: clamp(20px, 3vw, 32px) 0;
+    box-shadow: 0 18px 40px -22px rgba(15,15,16,.14);
+    font-size: 15px; line-height: 1.65; color: var(--ink-2);
+  }
+  .email-card .em-block{ margin-bottom: 18px }
+  .email-card .em-block:last-child{ margin-bottom: 0 }
+  .email-card .em-label{
+    font-family:var(--sans); font-weight:600;
+    font-size: 12px; letter-spacing:.04em;
+    color: var(--accent); margin-bottom: 6px;
+    text-transform: uppercase;
+  }
+  .email-card .em-body{ color: var(--ink); }
+  .email-card hr{
+    border: 0; border-top: 1px dashed var(--line);
+    margin: 14px 0;
+  }
+  .email-card .em-sig{
+    color: var(--muted); font-size: 13px;
+  }
+  .email-card .em-sig b{ color: var(--ink); font-weight: 600 }
+
+  /* LinkedIn post embed wrap -- natural mobile-style 504px column, centered */
+  .li-embed{
+    margin: clamp(24px, 4vw, 36px) auto;
+    max-width: 540px;
+    background: #fff;
+    border:1px solid var(--line);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 18px 40px -22px rgba(15,15,16,.14);
+  }
+  .li-embed .li-head{
+    display:flex; align-items:center; gap:10px;
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--line);
+    background: linear-gradient(180deg, #FBFAF6, #fff);
+  }
+  .li-embed .li-head .li-mark{
+    width: 22px; height: 22px; border-radius: 4px;
+    background: #0A66C2; color:#fff;
+    display:flex; align-items:center; justify-content:center;
+    font-weight: 700; font-size: 13px; font-family: var(--sans);
+  }
+  .li-embed .li-head span{ font-weight:600; font-size: 14px; color: var(--ink) }
+  .li-embed .li-frame{
+    position: relative; width: 100%;
+    /* Tall enough to give breathing room; the iframe scrolls internally for the rest */
+    height: 760px;
+  }
+  .li-embed iframe{
+    width: 100%; height: 100%;
+    border: 0; display: block;
+    background: #fff;
+  }
+  .li-embed .li-fallback{
+    padding: 14px 18px;
+    text-align:center; font-size: 12px; color: var(--muted);
+    border-top: 1px solid var(--line);
+    background: #FBFAF6;
+  }
+  .li-embed .li-fallback a{
+    color: var(--accent); border-bottom: 1px solid rgba(255,90,31,.4);
+  }
+
+  /* CTA */
+  .cs-cta{
+    margin: clamp(48px, 6vw, 72px) 0 0;
+    padding: clamp(28px, 4vw, 48px);
+    background: var(--ink); color:#fff; border-radius: 20px;
+    text-align: center; position: relative; overflow: hidden;
+  }
+  .cs-cta::before{
+    content:""; position:absolute; inset:-20% -10% auto auto; width:60%; aspect-ratio:1;
+    background: radial-gradient(closest-side, rgba(255,90,31,.18), transparent 70%);
+  }
+  .cs-cta h2{
+    color:#fff; margin: 0 0 14px; font-weight:500;
+    font-size: clamp(26px, 3.4vw, 40px); letter-spacing:-.02em;
+    position: relative;
+  }
+  .cs-cta h2 em{ font-family: var(--serif); font-style: italic; font-weight: 400 }
+  .cs-cta p{ color:#cfcdc4; max-width: 56ch; margin: 0 auto 24px; font-size: 16px; position: relative }
+  .btn{
+    display:inline-flex; align-items:center; gap:10px;
+    padding: 14px 22px; border-radius: 999px;
+    font-family:var(--sans); font-weight:600; font-size:15px;
+    background: var(--accent); color:#0a0a0a;
+    transition: transform .15s ease, background .2s ease;
+    position: relative;
+  }
+  .btn:hover{ transform: translateY(-1px); background:#ff6a30 }
+  .btn svg{ width:16px; height:16px; transition: transform .2s ease }
+  .btn:hover svg{ transform: translateX(3px) }
+
+  /* Footer */
+  .zd-footer{ background:#000; color:#fff; padding: clamp(48px, 6vw, 80px) 0 28px }
+  .zd-top{ display:flex; justify-content:space-between; align-items:flex-start; gap:24px; flex-wrap:wrap; padding-bottom:36px; border-bottom:1px solid rgba(255,255,255,.12) }
+  .zd-help{ font-family:var(--sans); font-weight:500; font-size: clamp(15px, 1.4vw, 18px); letter-spacing:.005em; line-height:1.4; color:#cfcdc4; max-width:32ch }
+  .zd-help a{ color:var(--accent); border-bottom:1px solid var(--accent); padding-bottom:1px; font-weight:600 }
+  .zd-bottom{ display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; padding-top:24px; color:#a8a69d; font-size:13px }
+  .zd-bottom a{ color:#a8a69d; margin-right:18px }
+  .zd-bottom a:hover{ color:#fff }
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<header class="nav">
+  <div class="nav-inner">
+    <a href="../index-v2.html" class="brand" aria-label="Clay Stan home">
+      <img src="../logos/clay-stan-light.png" alt="Clay Stan" />
+    </a>
+    <a href="../index-v2.html#case-studies" class="nav-back">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      All case studies
+    </a>
+  </div>
+</header>
+
+<!-- Header -->
+<section class="cs-header">
+  <div class="wrap">
+    <span class="crumb"><span class="dot"></span> <a href="../index-v2.html#case-studies">Case studies</a> &middot; Sute</span>
+
+    <h1 class="cs-title">101 investor replies for a <em>$9M seed round</em>.</h1>
+    <p class="cs-sub">Sute is raising a $9M seed for their AI Native Workspace and AI Agents platform. We ran the outbound. In two weeks: <strong>101 replies, 41 positive</strong>. The list of firms who said &ldquo;send the deck&rdquo; reads like a fundraising fantasy team.</p>
+
+    <div class="tags">
+      <span>Investor outreach</span>
+      <span>Seed fundraising</span>
+      <span>AI Native Workspace</span>
+      <span>AI Agents</span>
+    </div>
+
+    <div class="cs-meta">
+      <span><b>Client:</b> Sute</span>
+      <span><b>Founder:</b> Sathi Roy</span>
+      <span><b>Round:</b> $9M Seed</span>
+    </div>
+
+    <div class="cs-stats">
+      <div class="cs-stat">
+        <div class="n">$9M</div>
+        <div class="l">Seed round target</div>
+        <div class="c">Closing in 60 days</div>
+      </div>
+      <div class="cs-stat">
+        <div class="n">101</div>
+        <div class="l">Investor replies</div>
+        <div class="c">In two weeks</div>
+      </div>
+      <div class="cs-stat">
+        <div class="n">41</div>
+        <div class="l">Positive replies</div>
+        <div class="c">&ldquo;Send the deck&rdquo;</div>
+      </div>
+      <div class="cs-stat">
+        <div class="n">9</div>
+        <div class="l">Top-tier VCs</div>
+        <div class="c">Replies showcased below</div>
+      </div>
+      <div class="cs-stat">
+        <div class="n">$5.5B<sup>+</sup></div>
+        <div class="l">Combined AUM</div>
+        <div class="c">Of firms who replied</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Body -->
+<section class="cs">
+  <div class="wrap">
+
+    <h2>The <em>setup</em>.</h2>
+    <p>Sute partnered with Clay Stan for their seed-round fundraising campaign. The ask: $9M (SAFE) closing in 60 days. The job: get the deck in front of every check-writer who&rsquo;d look at an AI Native Workspace and AI Agents play.</p>
+    <p>We pulled the investor universe ourselves, enriched it, verified it, wrote the copy from scratch, and ran the campaigns. Two weeks later: <strong>101 replies, 41 of them positive</strong>.</p>
+
+    <!-- Trust bar -->
+    <div class="trust-bar">
+      <div>
+        <span class="label">Replies pulled from</span>
+        <div class="total"><span class="accent">$5.5B<sup>+</sup></span> in AUM</div>
+      </div>
+      <p class="desc">Combined assets under management of just the <b>nine featured firms</b> below. The full reply list runs longer.</p>
+    </div>
+
+    <h2>The <em>wall</em> of replies.</h2>
+    <p>Every screenshot below is a real inbound from a partner or principal at the named firm. AUM figures sourced from public filings and firm disclosures.</p>
+
+    <div class="vc-wall">
+
+      <!-- Featured: Draper -->
+      <article class="vc-card featured">
+        <div class="vc-head">
+          <div>
+            <span class="aum-label">Featured reply</span>
+            <div class="firm">Draper Associates</div>
+          </div>
+          <span class="aum">AUM &middot; ~$2.3B</span>
+        </div>
+        <div class="vc-shot">
+          <img src="sute/01-draper.png" alt="Email reply from James Walker at Draper Associates: 'Thanks Sathi, nice to meet you. Do you have a deck you could share?'" loading="lazy" />
+        </div>
+      </article>
+
+      <!-- Bonfire -->
+      <article class="vc-card">
+        <div class="vc-head">
+          <div class="firm">Bonfire Ventures</div>
+          <span class="aum">AUM &middot; $1B+</span>
+        </div>
+        <div class="vc-shot">
+          <img src="sute/02-bonfire.png" alt="Email reply from Bonfire Ventures: 'I'd be pleased to review your deck. Thanks!'" loading="lazy" />
+        </div>
+      </article>
+
+      <!-- Mucker -->
+      <article class="vc-card">
+        <div class="vc-head">
+          <div class="firm">Mucker Capital</div>
+          <span class="aum">AUM &middot; ~$550M</span>
+        </div>
+        <div class="vc-shot">
+          <img src="sute/03-mucker.png" alt="Email reply from Mucker Capital: I'm an early stage investor at Mucker Capital and wanted to follow up on your outreach to Omar. Would be my pleasure to learn more about what you're working on." loading="lazy" />
+        </div>
+      </article>
+
+      <!-- Kibo -->
+      <article class="vc-card">
+        <div class="vc-head">
+          <div class="firm">Kibo Ventures</div>
+          <span class="aum">AUM &middot; €500M+</span>
+        </div>
+        <div class="vc-shot">
+          <img src="sute/04-kibo.png" alt="Email reply from Kibo Ventures: 'Yes, please send.'" loading="lazy" />
+        </div>
+      </article>
+
+      <!-- OpenOcean -->
+      <article class="vc-card">
+        <div class="vc-head">
+          <div class="firm">OpenOcean</div>
+          <span class="aum">AUM &middot; €350--400M</span>
+        </div>
+        <div class="vc-shot">
+          <img src="sute/05-openocean.png" alt="Email reply from OpenOcean: 'Hi Sathi! Happy to take a look at the deck!'" loading="lazy" />
+        </div>
+      </article>
+
+      <!-- BGV -->
+      <article class="vc-card">
+        <div class="vc-head">
+          <div class="firm">Benhamou Global Ventures</div>
+          <span class="aum">AUM &middot; $300M+</span>
+        </div>
+        <div class="vc-shot">
+          <img src="sute/06-bgv.png" alt="Email reply from Eric at Benhamou Global Ventures: 'Please send the deck.'" loading="lazy" />
+        </div>
+      </article>
+
+      <!-- Mantis -->
+      <article class="vc-card">
+        <div class="vc-head">
+          <div class="firm">Mantis VC</div>
+          <span class="aum">AUM &middot; ~$250M</span>
+        </div>
+        <div class="vc-shot">
+          <img src="sute/07-mantis.png" alt="Email reply from Jeffrey Evans at Mantis VC: 'Sure. Please send.'" loading="lazy" />
+        </div>
+      </article>
+
+      <!-- 3KVC -->
+      <article class="vc-card">
+        <div class="vc-head">
+          <div class="firm">Third Kind Venture Capital</div>
+          <span class="aum">AUM &middot; $200M+</span>
+        </div>
+        <div class="vc-shot">
+          <img src="sute/08-3kvc.png" alt="Email reply from Third Kind Venture Capital: 'Hi - Happy to look at any materials you want to send. Thanks!'" loading="lazy" />
+        </div>
+      </article>
+
+      <!-- Acadian -->
+      <article class="vc-card">
+        <div class="vc-head">
+          <div class="firm">Acadian Ventures</div>
+          <span class="aum">AUM &middot; ~$45M</span>
+        </div>
+        <div class="vc-shot">
+          <img src="sute/09-acadian.png" alt="Email reply from Audrey at Acadian Ventures: 'Yes of course! Hi Sathi, super keen to learn more. Blockit cc'd will help find a time to speak next week.'" loading="lazy" />
+        </div>
+      </article>
+
+    </div>
+
+    <h2>The <em>copy</em>.</h2>
+    <p>Replies of this caliber don&rsquo;t come from templates. The whole approach was built around one question: <strong>why should this specific partner stop scrolling and read?</strong></p>
+
+    <h3>The golden bullet</h3>
+    <ul>
+      <li><strong>Subject line</strong> -- we researched each partner&rsquo;s portfolio and named a relevant company in the subject. That&rsquo;s the one job of a subject line: get it opened.</li>
+      <li><strong>Body</strong> -- six tight blocks. Intro. Credentials. What we&rsquo;re building. Where we are. The ask. The CTA. No paragraphs longer than three lines.</li>
+    </ul>
+
+    <h3>The structure we sent</h3>
+    <p style="font-size:13.5px; color:var(--muted); margin-bottom:16px; padding:10px 14px; background:#FBFAF6; border:1px dashed var(--line-2); border-radius:10px;">
+      <strong style="color:var(--ink); font-weight:600">Note:</strong> the names and companies in the example below are illustrative placeholders, not Sute&rsquo;s real founder or product details. We&rsquo;re showing the <em>structure</em> -- subject-line research, six tight body blocks, no fluff -- not the literal copy.
+    </p>
+    <div class="email-card">
+      <div class="em-block">
+        <div class="em-label">Introduction</div>
+        <div class="em-body">Hey Paul, I know this email might catch you off-guard.<br/>
+        I&rsquo;m Kareem -- Founder of ADA (ex-Apple, I led Apple&rsquo;s VR program with Dr. Steinberger. Scaled it from X to Y).</div>
+      </div>
+      <hr/>
+      <div class="em-block">
+        <div class="em-label">What we&rsquo;re doing &amp; significant achievements</div>
+        <div class="em-body">ADA is building the VR machines that Robots and AI can access. As of today, we have secured contracts with Apple, MSFT, and other notable players.</div>
+      </div>
+      <hr/>
+      <div class="em-block">
+        <div class="em-label">Where we stand as of today</div>
+        <div class="em-body">As of today, our revenue numbers are 50K MRR, growing at X% QoQ.</div>
+      </div>
+      <hr/>
+      <div class="em-block">
+        <div class="em-label">What&rsquo;s our ask</div>
+        <div class="em-body">Hans Capital is leading the round and we&rsquo;re looking to raise $9M (SAFE) closing round in the next 60 days.<br/>
+        Before we speak, mind if I send over the deck?</div>
+      </div>
+      <hr/>
+      <div class="em-block em-sig">
+        Best,<br/>
+        <b>Kareem</b> | CEO<br/>
+        ADA -- a VR Company
+      </div>
+    </div>
+
+    <h2>We broke this down on <em>LinkedIn</em>.</h2>
+    <p>The full mechanics -- subject lines, framing, ICP build -- live in this post. Embedded below so you can read it without leaving the site.</p>
+
+    <div class="li-embed">
+      <div class="li-head">
+        <span class="li-mark">in</span>
+        <span>LinkedIn post &middot; A data-backed guide to fundraising</span>
+      </div>
+      <div class="li-frame">
+        <iframe
+          src="https://www.linkedin.com/embed/feed/update/urn:li:share:7445858693981618176"
+          title="LinkedIn post: A data-backed guide to fundraising"
+          loading="lazy"
+          frameborder="0"
+          allowfullscreen></iframe>
+      </div>
+      <div class="li-fallback">
+        Trouble loading the embed? <a href="https://www.linkedin.com/feed/update/urn:li:share:7445858693981618176/" target="_blank" rel="noopener">Open the post on LinkedIn</a>.
+      </div>
+    </div>
+
+    <div class="tools">
+      <h3>The stack we deployed</h3>
+      <ul>
+        <li><b>Octoparse + Instant Data Scraper</b> -- investor database build from scratch</li>
+        <li><b>Clay</b> -- data enrichment and per-investor personalization</li>
+        <li><b>Apollo, Icypeas, Leadmagic</b> -- email enrichment and verification</li>
+        <li><b>Reoon + BounceBan</b> -- double email verification, &lt;1% bounce rate</li>
+        <li><b>Email Guard</b> -- ESG (Email Security Gateway) avoidance</li>
+        <li><b>HeyReach</b> -- LinkedIn outreach delivery</li>
+      </ul>
+    </div>
+
+    <div class="cs-cta">
+      <h2>Raising your <em>next round</em>?</h2>
+      <p>If you&rsquo;re a founder running a fundraising campaign, we can help you put your deck in front of partners who actually write checks. Book a call and we&rsquo;ll walk through your raise.</p>
+      <a href="../index-v2.html#founder" class="btn">
+        Book a discovery call
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+    <p style="margin-top: 28px; color: var(--muted); font-size: 14px; font-style: italic;">Blue skies, <br/>Team Clay Stan</p>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="zd-footer">
+  <div class="wrap-wide">
+    <div class="zd-top">
+      <div class="zd-help">
+        How can we help? <a href="https://wa.me/19177356201" target="_blank" rel="noopener">Contact us on WhatsApp.</a>
+      </div>
+    </div>
+    <div class="zd-bottom">
+      <div>
+        <a href="../terms.html">Terms &amp; Conditions</a>
+        <a href="../privacy.html">Privacy Notice</a>
+      </div>
+      <span>&copy; <span id="yr">2026</span> claystan LLC.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+<script src="../clay-stan-logo.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Careers | Clay Stan</title>
+<meta name="description" content="Open roles at Clay Stan -- the GTM company building pipeline systems for B2B and venture-backed companies. Remote, EST hours, performance bonuses." />
+
+<link rel="preconnect" href="https://api.fontshare.com" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,600,700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<link rel="icon" type="image/png" href="logos/clay-stan-light.png" />
+
+<style>
+  :root{
+    --bg:#F6F4EE; --ink:#0F0F10; --ink-2:#2A2A2C; --muted:#6E6E73;
+    --line:#E4E0D7; --line-2:#D8D3C7; --card:#FFFFFF;
+    --accent:#FF5A1F;
+    --r-lg:24px;
+    --maxw:1240px;
+    --pad:clamp(16px, 5vw, 56px);
+    --sans:'Vanilla Sans','Satoshi','Inter',system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    --serif:'Instrument Serif','Times New Roman',serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{
+    background-color:var(--bg);
+    background-image:
+      linear-gradient(to right, rgba(15,15,16,.022) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(15,15,16,.022) 1px, transparent 1px);
+    background-size: 96px 96px;
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:16px; line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--ink); text-decoration:none}
+  img{max-width:100%; display:block}
+
+  .wrap{max-width:var(--maxw); margin:0 auto; padding-left:var(--pad); padding-right:var(--pad)}
+
+  /* Nav (matches site pill) */
+  .nav{ position:sticky; top: clamp(10px,1.4vw,18px); z-index:50; padding: 0 var(--pad) }
+  .nav-inner{
+    max-width: 980px; margin: 0 auto; height: 64px;
+    padding: 6px 6px 6px 16px;
+    background: rgba(255,255,255,.78);
+    backdrop-filter: blur(20px) saturate(150%);
+    border:1px solid rgba(15,15,16,.08); border-radius: 999px;
+    box-shadow: 0 8px 28px -10px rgba(15,15,16,.10), 0 1px 0 rgba(255,255,255,.5) inset;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .brand{display:inline-flex; align-items:center; gap:10px}
+  .brand img{ height:44px; width:auto }
+  .nav-back{
+    display:inline-flex; align-items:center; gap:8px;
+    padding: 9px 16px; border:1px solid var(--line-2); border-radius:999px;
+    font-size:14px; font-weight:500; color:var(--ink-2);
+    transition: background .2s, color .2s, border-color .2s;
+  }
+  .nav-back:hover{background:#fff; color:var(--ink); border-color:var(--ink)}
+
+  /* Hero */
+  .hero{
+    padding: clamp(56px, 8vw, 112px) 0 clamp(36px, 5vw, 56px);
+    text-align: center;
+  }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:var(--sans); font-weight:500; font-size:11px;
+    letter-spacing:.18em; text-transform:uppercase; color:var(--muted);
+  }
+  .eyebrow .dot{width:6px; height:6px; border-radius:50%; background:var(--accent)}
+  .display{
+    margin: clamp(16px, 2.4vw, 26px) auto 0;
+    font-family:var(--sans); font-weight:500;
+    font-size: clamp(40px, 7vw, 92px);
+    line-height:1; letter-spacing: -.035em;
+    max-width: 16ch;
+  }
+  .display em{ font-family:var(--serif); font-style:italic; font-weight:400 }
+  .lede{
+    margin: clamp(18px, 2.4vw, 28px) auto 0;
+    font-size: clamp(17px, 1.5vw, 19px); line-height:1.55; color:var(--ink-2);
+    max-width: 56ch;
+  }
+
+  /* Working-here strip (replaces aggregate stats) */
+  .agg{
+    margin-top: clamp(36px, 5vw, 56px);
+    display:grid; grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+  }
+  @media (max-width: 720px){ .agg{ grid-template-columns: repeat(2, 1fr) } }
+  .agg-stat{
+    padding: clamp(20px, 3vw, 28px) 18px;
+    text-align: left;
+    border-right: 1px solid var(--line);
+  }
+  .agg-stat:last-child{ border-right:0 }
+  @media (max-width: 720px){
+    .agg-stat:nth-child(2n){ border-right:0 }
+    .agg-stat:nth-child(-n+2){ border-bottom: 1px solid var(--line) }
+  }
+  .agg-stat .n{
+    font-family:var(--sans); font-weight:500;
+    font-size: clamp(22px, 2.6vw, 30px);
+    line-height: 1.05; letter-spacing: -.02em;
+  }
+  .agg-stat .l{ font-weight:600; font-size:13px; margin-top:8px }
+  .agg-stat .c{ font-size:12px; color:var(--muted); margin-top:2px }
+
+  /* Search + filter row */
+  .filters{
+    padding: clamp(40px, 5vw, 64px) 0 clamp(20px, 3vw, 32px);
+    display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between;
+    gap: 18px;
+  }
+  .search-wrap{
+    display:flex; align-items:center; gap:10px;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:999px;
+    padding: 4px 6px 4px 16px;
+    flex: 1 1 320px; max-width: 460px;
+    transition: border-color .2s, box-shadow .2s;
+  }
+  .search-wrap:focus-within{
+    border-color: var(--ink);
+    box-shadow: 0 0 0 4px rgba(15,15,16,.05);
+  }
+  .search-wrap svg{ width:16px; height:16px; color: var(--muted); flex-shrink:0 }
+  .search-wrap input{
+    border:0; outline:0; background:transparent;
+    flex:1; font-family:var(--sans); font-weight:500; font-size:14px;
+    color: var(--ink); padding: 12px 0;
+  }
+  .search-wrap input::placeholder{ color: var(--muted); font-weight:500 }
+  .search-clear{
+    display:none;
+    border:0; background:#F1EEE5; color: var(--ink-2);
+    width:30px; height:30px; border-radius:50%;
+    align-items:center; justify-content:center;
+    cursor:pointer; font-size:14px; line-height:1;
+    transition: background .15s;
+  }
+  .search-clear:hover{ background: var(--line-2) }
+  .search-wrap.has-text .search-clear{ display:inline-flex }
+
+  .filter-row{
+    display:flex; flex-wrap:wrap; gap: 8px;
+  }
+  .filter-btn{
+    border: 1px solid var(--line);
+    background: #fff;
+    padding: 9px 16px;
+    border-radius: 999px;
+    font-family: var(--sans); font-weight: 500;
+    font-size: 13px; color: var(--ink-2);
+    cursor: pointer;
+    transition: background .2s, color .2s, border-color .2s;
+  }
+  .filter-btn:hover{ border-color: var(--ink); color: var(--ink) }
+  .filter-btn.active{
+    background: var(--ink); color: var(--bg); border-color: var(--ink);
+  }
+  .filter-count{
+    font-size: 13px; color: var(--muted);
+    font-family: var(--sans); font-weight: 500;
+  }
+  .filter-count b{ color: var(--ink); font-weight: 600 }
+
+  /* Roles grid */
+  .roles-section{ padding-bottom: clamp(64px, 8vw, 104px) }
+  .role-grid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(16px, 2.4vw, 24px);
+  }
+  @media (max-width: 1100px){ .role-grid{ grid-template-columns: repeat(2, 1fr) } }
+  @media (max-width: 720px){ .role-grid{ grid-template-columns: 1fr } }
+
+  .role-card{
+    display:flex; flex-direction:column;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius: var(--r-lg);
+    padding: clamp(24px, 3vw, 36px);
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease, opacity .25s;
+    color:var(--ink);
+    position: relative;
+    overflow: hidden;
+  }
+  .role-card::before{
+    content:""; position:absolute; inset: -1px -1px auto auto;
+    width: 140px; height: 140px;
+    background: radial-gradient(closest-side, rgba(255,90,31,.10), transparent 70%);
+    pointer-events:none;
+  }
+  .role-card:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 26px 50px -24px rgba(15,15,16,.20);
+    border-color: var(--line-2);
+  }
+  .role-card.hide{ display:none }
+
+  .role-tag{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:var(--sans); font-weight:500; font-size:11px;
+    letter-spacing:.16em; text-transform:uppercase; color:var(--muted);
+  }
+  .role-tag .dot{width:6px; height:6px; border-radius:50%; background:var(--accent)}
+
+  .role-card h2{
+    margin: 14px 0 0;
+    font-family:var(--sans); font-weight:500;
+    font-size: clamp(26px, 2.6vw, 34px);
+    letter-spacing:-.02em; line-height: 1.1;
+  }
+  .role-card h2 em{ font-family:var(--serif); font-style:italic; font-weight:400 }
+
+  .role-meta{
+    display:flex; flex-wrap:wrap; gap: 8px;
+    margin-top: 18px;
+  }
+  .role-meta span{
+    display:inline-flex; align-items:center; gap:6px;
+    font-size:12px; font-weight:500; padding: 6px 10px;
+    background: #FBFAF6; border:1px solid var(--line); border-radius:999px;
+    color: var(--ink-2);
+  }
+  .role-meta span svg{ width: 12px; height: 12px; color: var(--muted) }
+
+  .role-card p{
+    font-size: 15px; color: var(--ink-2); line-height:1.55;
+    margin: 18px 0 0;
+  }
+
+  .role-go{
+    margin-top: clamp(20px, 3vw, 28px);
+    display:inline-flex; align-items:center; gap:10px;
+    font-size: 14px; font-weight:600; color: var(--ink);
+    border-top: 1px solid var(--line);
+    padding-top: 18px;
+    transition: color .2s ease;
+  }
+  .role-card:hover .role-go{ color: var(--accent) }
+  .role-go svg{ width: 14px; height:14px; transition: transform .2s ease }
+  .role-card:hover .role-go svg{ transform: translateX(3px) }
+
+  /* Empty state */
+  .empty{
+    text-align:center; padding: 56px 20px;
+    color: var(--muted); font-size: 15px;
+    border: 1px dashed var(--line-2);
+    border-radius: var(--r-lg);
+    background: rgba(255,255,255,.5);
+  }
+  .empty.hide{ display:none }
+  .empty b{ color: var(--ink) }
+
+  /* CTA strip */
+  .cta-strip{
+    margin-top: clamp(56px, 7vw, 96px);
+    padding: clamp(32px, 4vw, 56px);
+    background: var(--ink); color:#fff;
+    border-radius: 24px;
+    display:grid; grid-template-columns: 1.6fr 1fr;
+    gap: 28px; align-items:center;
+    position:relative; overflow:hidden;
+  }
+  .cta-strip::before{
+    content:""; position:absolute; inset:auto -10% -40% auto; width:50%; aspect-ratio:1;
+    background: radial-gradient(closest-side, rgba(255,90,31,.22), transparent 70%);
+    pointer-events:none;
+  }
+  @media (max-width: 820px){ .cta-strip{ grid-template-columns: 1fr } }
+  .cta-strip h2{
+    margin: 0; color:#fff; font-weight: 500;
+    font-size: clamp(26px, 3.2vw, 38px); letter-spacing: -.02em;
+    line-height: 1.1;
+    position: relative;
+  }
+  .cta-strip h2 em{ font-family:var(--serif); font-style:italic; font-weight:400 }
+  .cta-strip p{ color:#cfcdc4; margin: 12px 0 0; max-width: 50ch; position:relative }
+  .cta-strip-actions{ display:flex; justify-content:flex-end; position:relative }
+  .btn{
+    display:inline-flex; align-items:center; gap:10px;
+    padding: 14px 22px; border-radius: 999px;
+    font-family:var(--sans); font-weight:600; font-size:15px;
+    background: var(--accent); color:#0a0a0a;
+    transition: transform .15s ease, background .2s ease;
+  }
+  .btn:hover{ transform: translateY(-1px); background:#ff6a30 }
+  .btn svg{ width:16px; height:16px; transition: transform .2s ease }
+  .btn:hover svg{ transform: translateX(3px) }
+  @media (max-width: 820px){ .cta-strip-actions{ justify-content:flex-start } }
+
+  /* Footer (matches casestudies) */
+  .zd-footer{ background:#000; color:#fff; padding: clamp(48px, 6vw, 80px) 0 28px; margin-top: 0 }
+  .zd-top{ display:flex; justify-content:space-between; gap:24px; flex-wrap:wrap; padding-bottom:36px; border-bottom:1px solid rgba(255,255,255,.12) }
+  .zd-help{ font-family:var(--sans); font-weight:500; font-size: clamp(15px, 1.4vw, 18px); letter-spacing:.005em; line-height:1.4; color:#cfcdc4; max-width:32ch }
+  .zd-help a{ color:var(--accent); border-bottom:1px solid var(--accent); padding-bottom:1px; font-weight:600 }
+  .zd-bottom{ display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; padding-top:24px; color:#a8a69d; font-size:13px }
+  .zd-bottom a{ color:#a8a69d; margin-right:18px }
+  .zd-bottom a:hover{ color:#fff }
+  .zd-socials{ display:flex; gap:12px; flex-wrap:wrap }
+  .zd-socials a{
+    width:38px; height:38px; border-radius:50%;
+    background:rgba(255,255,255,.06);
+    display:flex; align-items:center; justify-content:center; color:#fff;
+    transition:background .2s, transform .2s;
+  }
+  .zd-socials a:hover{ background:var(--accent); transform:translateY(-2px) }
+  .zd-socials svg{ width:16px; height:16px }
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index-v2.html" class="brand" aria-label="Clay Stan home">
+      <img src="logos/clay-stan-light.png" alt="Clay Stan" />
+    </a>
+    <a href="index-v2.html" class="nav-back">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to home
+    </a>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow"><span class="dot"></span> Careers</span>
+    <h1 class="display">Build the GTM <em>stack</em> with us.</h1>
+    <p class="lede">Clay Stan is a small, technical GTM team running pipeline systems for venture-backed startups, advisory firms, and B2B operators. We're hiring builders who treat each client campaign as a system to be designed -- not a task to be checked off.</p>
+
+    <!-- Working-here strip -->
+    <div class="agg" aria-label="What working here looks like">
+      <div class="agg-stat">
+        <div class="n">Remote</div>
+        <div class="l">Wherever you are</div>
+        <div class="c">EST working hours</div>
+      </div>
+      <div class="agg-stat">
+        <div class="n">Full-time</div>
+        <div class="l">5 days a week</div>
+        <div class="c">No agency-bench BS</div>
+      </div>
+      <div class="agg-stat">
+        <div class="n">Performance</div>
+        <div class="l">Bonuses tied to outcomes</div>
+        <div class="c">Real client results, real upside</div>
+      </div>
+      <div class="agg-stat">
+        <div class="n">Direct line</div>
+        <div class="l">Report to the founder</div>
+        <div class="c">Full ownership of your campaigns</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Filters + Grid -->
+<section class="roles-section">
+  <div class="wrap">
+
+    <!-- Search + filter bar -->
+    <div class="filters" role="search" aria-label="Search and filter open roles">
+      <div class="search-wrap" id="search-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        <input type="search" id="role-search" placeholder="Search roles, skills, keywords..." autocomplete="off" />
+        <button type="button" class="search-clear" id="search-clear" aria-label="Clear search">&times;</button>
+      </div>
+
+      <div class="filter-row" id="filters" role="tablist" aria-label="Filter by department">
+        <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All roles</button>
+        <button class="filter-btn" data-filter="gtm" role="tab">GTM</button>
+        <button class="filter-btn" data-filter="sales" role="tab">Sales</button>
+        <button class="filter-btn" data-filter="open" role="tab">Open / DYOR</button>
+      </div>
+
+      <div class="filter-count" id="filter-count">Showing <b>3</b> roles</div>
+    </div>
+
+    <!-- Grid -->
+    <div class="role-grid" id="role-grid">
+
+      <!-- GTM Engineer -->
+      <a href="careers/gtm-engineer.html" class="role-card" data-segments="gtm" data-keywords="gtm engineer gtme clay apollo smartlead aimfox webhooks api crm hubspot salesforce attio n8n python node copywriting cold email linkedin outbound enrichment icp tam waterfall verifier zapier make">
+        <span class="role-tag"><span class="dot"></span> Engineering &middot; GTM</span>
+        <h2>Go-To-Market <em>Engineer</em></h2>
+        <div class="role-meta">
+          <span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Remote &middot; EST hours
+          </span>
+          <span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+            Full-time &middot; 5 days
+          </span>
+          <span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6l9 6 9-6"/><rect x="3" y="6" width="18" height="14" rx="2"/></svg>
+            Reports to founder
+          </span>
+        </div>
+        <p>Own client campaigns end-to-end -- ICP, TAM, enrichment, copy, sequencing, deliverability. You'll write Clay waterfalls, wire webhooks, push send, and iterate weekly. Hybrid seat for someone who thinks in systems, not tasks.</p>
+        <span class="role-go">View role &amp; apply <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+      </a>
+
+      <!-- SDR (Warm Calls Only) -->
+      <a href="careers/sdr-warm-calls.html" class="role-card" data-segments="sales" data-keywords="sdr sales development representative warm calls phone dialer cloudtalk aircall justcall orum american british accent outbound speed to lead 15 minutes hubspot crm closer">
+        <span class="role-tag"><span class="dot"></span> Sales &middot; SDR</span>
+        <h2>SDR &middot; <em>Warm calls</em> only</h2>
+        <div class="role-meta">
+          <span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Remote
+          </span>
+          <span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+            Full-time
+          </span>
+          <span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            15-min response SLA
+          </span>
+        </div>
+        <p>Warm leads come in, you pick up the phone within 15 minutes. The automations enrich the phone number -- you bring the accent, the confidence, and the booked meeting. No cold dials. No prospecting from scratch.</p>
+        <span class="role-go">View role &amp; apply <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+      </a>
+
+      <!-- DYOR -->
+      <a href="careers/dyor.html" class="role-card" data-segments="open" data-keywords="dyor design your own role open application talent operator generalist anything special skills">
+        <span class="role-tag"><span class="dot"></span> Open application</span>
+        <h2>Design <em>Your Own</em> Role</h2>
+        <div class="role-meta">
+          <span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Remote
+          </span>
+          <span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            Flexible
+          </span>
+          <span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 16.8l-6.2 4.5 2.4-7.4L2 9.4h7.6z"/></svg>
+            Talent over title
+          </span>
+        </div>
+        <p>The best roles are created by people who think their talent is above any title. If you can't see yourself in a posted job but you know you can build something we don't have yet -- pitch it. We'll read every application.</p>
+        <span class="role-go">Pitch your role &amp; apply <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+      </a>
+
+    </div>
+
+    <!-- Empty state -->
+    <div class="empty hide" id="empty-state">
+      No roles match <b id="empty-query">that</b>. Try a broader search, or <a href="careers/dyor.html" style="color:var(--accent); border-bottom:1px solid var(--accent); font-weight:600">design your own role</a>.
+    </div>
+
+    <!-- CTA strip -->
+    <div class="cta-strip">
+      <div>
+        <h2>Don't see <em>your role</em> here?</h2>
+        <p>We've hired people into seats that didn't exist on the careers page until they pitched them. If your skill stack is sharper than any title we've written, tell us.</p>
+      </div>
+      <div class="cta-strip-actions">
+        <a href="careers/dyor.html" class="btn">
+          Design your own role
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="zd-footer">
+  <div class="wrap">
+    <div class="zd-top">
+      <div class="zd-help">
+        How can we help? <a href="https://wa.me/19177356201" target="_blank" rel="noopener">Contact us on WhatsApp.</a>
+      </div>
+      <div class="zd-socials" aria-label="Social links">
+        <a href="https://www.linkedin.com/in/talhasells/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45C23.21 24 24 23.23 24 22.28V1.72C24 .77 23.21 0 22.23 0z"/></svg></a>
+        <a href="https://www.youtube.com/@ClayStan-gtm" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8ZM9.6 15.6V8.4l6.2 3.6-6.2 3.6Z"/></svg></a>
+        <a href="https://wa.me/19177356201" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4a7.94 7.94 0 0 0-6.88 11.9L4 20l4.2-1.1a7.94 7.94 0 0 0 3.85.98h.01c4.38 0 7.94-3.56 7.94-7.94a7.88 7.88 0 0 0-2.4-5.62Zm-5.55 12.21h-.01a6.6 6.6 0 0 1-3.36-.92l-.24-.14-2.5.65.67-2.43-.16-.25a6.59 6.59 0 0 1 5.6-10.09 6.55 6.55 0 0 1 4.66 1.93 6.55 6.55 0 0 1 1.93 4.66 6.6 6.6 0 0 1-6.59 6.59Z"/></svg></a>
+      </div>
+    </div>
+    <div class="zd-bottom">
+      <div>
+        <a href="terms.html">Terms &amp; Conditions</a>
+        <a href="privacy.html">Privacy Notice</a>
+      </div>
+      <span>&copy; <span id="yr">2026</span> claystan LLC.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // Search + segment filter combined
+  (function () {
+    const buttons = document.querySelectorAll('.filter-btn');
+    const cards   = document.querySelectorAll('.role-card');
+    const count   = document.getElementById('filter-count');
+    const empty   = document.getElementById('empty-state');
+    const emptyQ  = document.getElementById('empty-query');
+    const search  = document.getElementById('role-search');
+    const wrap    = document.getElementById('search-wrap');
+    const clear   = document.getElementById('search-clear');
+
+    let activeFilter = 'all';
+    let activeQuery  = '';
+
+    function apply() {
+      let visible = 0;
+      const wanted = activeFilter === 'all' ? null : activeFilter.split('|');
+      const q = activeQuery.trim().toLowerCase();
+      cards.forEach(function (card) {
+        const segs = (card.dataset.segments || '').split(/\s+/);
+        const segOK = !wanted || wanted.some(function (t) { return segs.indexOf(t) !== -1; });
+        const haystack = (
+          (card.textContent || '') + ' ' +
+          (card.dataset.keywords || '')
+        ).toLowerCase();
+        const queryOK = !q || haystack.indexOf(q) !== -1;
+        const show = segOK && queryOK;
+        card.classList.toggle('hide', !show);
+        if (show) visible++;
+      });
+      count.innerHTML = 'Showing <b>' + visible + '</b> role' + (visible === 1 ? '' : 's');
+      if (q) emptyQ.textContent = '"' + activeQuery.trim() + '"';
+      else emptyQ.textContent = 'that';
+      empty.classList.toggle('hide', visible !== 0);
+    }
+
+    buttons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        buttons.forEach(function (b) { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
+        activeFilter = btn.dataset.filter;
+        apply();
+      });
+    });
+
+    search.addEventListener('input', function () {
+      activeQuery = search.value;
+      wrap.classList.toggle('has-text', activeQuery.length > 0);
+      apply();
+    });
+
+    clear.addEventListener('click', function () {
+      search.value = '';
+      activeQuery = '';
+      wrap.classList.remove('has-text');
+      search.focus();
+      apply();
+    });
+  })();
+</script>
+<script src="clay-stan-logo.js" defer></script>
+</body>
+</html>

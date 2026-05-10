@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Pulsift &times; Radnor Eyewear case study | Clay Stan</title>
+<meta name="description" content="How Clay Stan partnered with Pulsift to generate $150K of pipeline for Radnor Eyewear in days." />
+
+<link rel="preconnect" href="https://api.fontshare.com" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,600,700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="icon" type="image/png" href="../logos/clay-stan-light.png" />
+
+<style>
+  :root{
+    --bg:#F6F4EE; --ink:#0F0F10; --ink-2:#2A2A2C; --muted:#6E6E73;
+    --line:#E4E0D7; --line-2:#D8D3C7; --card:#FFFFFF;
+    --accent:#FF5A1F;
+    --maxw:1080px;
+    --pad:clamp(16px, 5vw, 56px);
+    --sans:'Vanilla Sans','Satoshi','Inter',system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    --serif:'Instrument Serif','Times New Roman',serif;
+    --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{
+    background-color:var(--bg);
+    background-image:
+      linear-gradient(to right, rgba(15,15,16,.022) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(15,15,16,.022) 1px, transparent 1px);
+    background-size: 96px 96px;
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:16px; line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--ink); text-decoration:none}
+  img{max-width:100%; display:block}
+
+  .wrap{max-width:var(--maxw); margin:0 auto; padding-left:var(--pad); padding-right:var(--pad)}
+  .wrap-wide{max-width:1240px; margin:0 auto; padding-left:var(--pad); padding-right:var(--pad)}
+
+  /* Nav (matches homepage pill) */
+  .nav{ position:sticky; top: clamp(10px,1.4vw,18px); z-index:50; padding: 0 var(--pad) }
+  .nav-inner{
+    max-width: 980px; margin: 0 auto; height: 64px;
+    padding: 6px 6px 6px 16px;
+    background: rgba(255,255,255,.78);
+    backdrop-filter: blur(20px) saturate(150%);
+    border:1px solid rgba(15,15,16,.08); border-radius: 999px;
+    box-shadow: 0 8px 28px -10px rgba(15,15,16,.10), 0 1px 0 rgba(255,255,255,.5) inset;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .brand{display:inline-flex; align-items:center; gap:10px}
+  .brand img{ height:44px; width:auto }
+  .nav-back{
+    display:inline-flex; align-items:center; gap:8px;
+    padding: 9px 16px; border:1px solid var(--line-2); border-radius:999px;
+    font-size:14px; font-weight:500; color:var(--ink-2);
+    transition: background .2s, color .2s, border-color .2s;
+  }
+  .nav-back:hover{background:#fff; color:var(--ink); border-color:var(--ink)}
+
+  /* Header */
+  .cs-header{ padding: clamp(48px, 7vw, 96px) 0 clamp(36px, 5vw, 64px); border-bottom:1px solid var(--line) }
+  .crumb{
+    font-family:var(--sans); font-weight:500; font-size:11px;
+    letter-spacing:.18em; text-transform:uppercase; color:var(--muted);
+    display:inline-flex; align-items:center; gap:8px;
+  }
+  .crumb .dot{width:6px; height:6px; border-radius:50%; background:var(--accent)}
+  .crumb a{color:var(--muted); border-bottom:1px solid var(--line-2)}
+  .crumb a:hover{color:var(--ink); border-color:var(--ink)}
+
+  .cs-meta{
+    display:flex; gap:18px; flex-wrap:wrap; margin-top: clamp(14px, 2vw, 22px);
+    font-family:var(--sans); font-weight:400; font-size:12px; color:var(--muted); letter-spacing:.04em;
+  }
+  .cs-meta span{display:inline-flex; align-items:center; gap:6px}
+  .cs-meta b{color:var(--ink); font-family:var(--sans); font-weight:600; letter-spacing:0}
+
+  h1.cs-title{
+    margin: clamp(18px, 3vw, 28px) 0 0;
+    font-family:var(--sans); font-weight:500;
+    font-size: clamp(36px, 5.6vw, 76px);
+    letter-spacing: -.025em; line-height:1.02;
+  }
+  h1.cs-title em{ font-family:var(--serif); font-style:italic; font-weight:400 }
+  .cs-sub{
+    margin-top: clamp(14px, 2vw, 22px);
+    font-size: clamp(17px, 1.5vw, 19px); line-height:1.55; color:var(--ink-2);
+    max-width: 60ch;
+  }
+
+  /* Headline metrics row */
+  .cs-stats{
+    display:grid; grid-template-columns: repeat(4, 1fr); gap: clamp(12px, 2vw, 24px);
+    margin-top: clamp(28px, 4vw, 44px);
+  }
+  @media (max-width: 720px){ .cs-stats{ grid-template-columns: repeat(2, 1fr) } }
+  .cs-stat{ padding: 22px 0; border-top: 1px solid var(--ink) }
+  .cs-stat .n{
+    font-family:var(--sans); font-weight:500;
+    font-size: clamp(36px, 4.2vw, 56px);
+    line-height:.95; letter-spacing:-.035em;
+  }
+  .cs-stat .n sup{ font-size:.5em; font-weight:600; color:var(--accent); margin-left:3px }
+  .cs-stat .l{ font-weight:600; font-size:13px; margin-top:6px }
+  .cs-stat .c{ font-size:12px; color:var(--muted); margin-top:2px }
+
+  /* Body */
+  .cs{ padding: clamp(48px, 6vw, 80px) 0 clamp(64px, 8vw, 96px) }
+  .cs h2{
+    font-family:var(--sans); font-weight:500;
+    font-size: clamp(26px, 3.4vw, 40px); letter-spacing:-.02em; line-height:1.05;
+    margin: clamp(48px, 6vw, 72px) 0 clamp(14px, 2vw, 22px);
+  }
+  .cs h2 em{ font-family:var(--serif); font-style:italic; font-weight:400 }
+  .cs h2:first-of-type{ margin-top: 0 }
+  .cs h3{
+    font-family:var(--sans); font-weight:600;
+    font-size: 18px; letter-spacing:-.005em;
+    margin: 28px 0 8px;
+  }
+  .cs p, .cs li{ color:var(--ink-2); font-size:17px; line-height:1.7 }
+  .cs p{ margin: 0 0 16px }
+  .cs ul, .cs ol{ padding-left: 22px; margin: 0 0 18px }
+  .cs li{ margin-bottom: 8px }
+  .cs strong{ color:var(--ink); font-weight:600 }
+  .cs em.q{ font-family:var(--serif); font-style:italic; color:var(--ink) }
+
+  /* Pull quote */
+  .pull{
+    margin: clamp(28px, 4vw, 44px) 0;
+    padding: clamp(22px, 3vw, 32px);
+    background: var(--ink); color:#fff; border-radius: 18px;
+    position:relative; overflow:hidden;
+  }
+  .pull::before{
+    content:""; position:absolute; inset:auto -10% -40% auto; width:50%; aspect-ratio:1;
+    background: radial-gradient(closest-side, rgba(255,90,31,.22), transparent 70%);
+    pointer-events:none;
+  }
+  .pull blockquote{
+    margin:0; position:relative;
+    font-family:var(--sans); font-weight:500;
+    font-size: clamp(22px, 2.6vw, 32px); line-height:1.25; letter-spacing:-.018em;
+  }
+  .pull cite{
+    display:block; margin-top:18px; font-style:normal;
+    font-size:13px; color:#bdbdc1; letter-spacing:.04em;
+  }
+  .pull cite b{color:#fff; font-weight:600}
+
+  /* Screenshot frames */
+  .shot{
+    margin: clamp(20px, 3vw, 32px) 0;
+    border:1px solid var(--line);
+    background:#fff;
+    border-radius: 14px;
+    padding: 12px;
+    box-shadow: 0 18px 40px -22px rgba(15,15,16,.18);
+  }
+  .shot img{
+    width:100%; height:auto;
+    border-radius: 8px;
+    display:block;
+  }
+  .shot figcaption{
+    font-family:var(--sans); font-weight:500; font-size:12px;
+    color:var(--muted); margin-top: 10px; padding: 0 6px;
+    letter-spacing: .02em;
+  }
+
+  /* Tag chips */
+  .tags{ display:flex; flex-wrap:wrap; gap:6px; margin: 18px 0 }
+  .tags span{
+    font-size:11px; font-weight:500; padding: 5px 10px;
+    background:#fff; border:1px solid var(--line); border-radius:999px;
+    color: var(--ink-2);
+  }
+
+  /* YouTube embed with a lite-facade -- see neonvest.html for full notes */
+  .video{
+    margin: clamp(24px, 4vw, 40px) 0;
+    border-radius: 16px;
+    overflow: hidden;
+    background:#000;
+    position: relative;
+    aspect-ratio: 16 / 9;
+    box-shadow: 0 24px 52px -28px rgba(15,15,16,.35);
+  }
+  .video iframe{ position:absolute; inset:0; width:100%; height:100%; border:0 }
+  .video.facade{
+    background-size: cover; background-position: center;
+    cursor: pointer; display:flex; align-items:center; justify-content:center; border:0;
+  }
+  .video.facade::after{
+    content:""; position:absolute; inset:0;
+    background: linear-gradient(180deg, rgba(0,0,0,.05) 0%, rgba(0,0,0,.45) 100%);
+  }
+  .video.facade .play-btn{
+    position: relative; z-index: 1;
+    width: 76px; height: 76px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.95); border: 0; cursor: pointer;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow: 0 12px 28px rgba(0,0,0,.32);
+    transition: transform .25s ease, background .25s ease;
+  }
+  .video.facade:hover .play-btn,
+  .video.facade:focus-visible .play-btn{ transform: scale(1.08); background: var(--accent) }
+  .video.facade .play-btn svg{
+    width: 32px; height: 32px; margin-left: 4px;
+    color: var(--ink); transition: color .25s ease;
+  }
+  .video.facade:hover .play-btn svg,
+  .video.facade:focus-visible .play-btn svg{ color: #fff }
+  .video.facade .badge-yt{
+    position:absolute; top: 14px; left: 14px; z-index: 1;
+    background: rgba(255,255,255,.92); color: var(--ink);
+    font-size: 11px; font-weight: 600; padding: 5px 10px; border-radius: 999px; letter-spacing:.02em;
+  }
+  .video-cap{ margin-top: 10px; font-size: 12px; color: var(--muted); font-weight: 500 }
+
+  /* Tools list */
+  .tools{
+    background:#fff; border:1px solid var(--line); border-radius: 16px;
+    padding: clamp(20px, 3vw, 28px);
+    margin: clamp(20px, 3vw, 32px) 0;
+  }
+  .tools h3{ margin: 0 0 14px }
+  .tools ul{ margin:0; padding-left:0; list-style:none; display:grid; grid-template-columns: 1fr 1fr; gap: 10px 24px }
+  @media (max-width: 720px){ .tools ul{ grid-template-columns: 1fr } }
+  .tools li{
+    font-size: 14px; line-height: 1.5; color: var(--ink-2);
+    padding-left: 18px; position: relative; margin: 0;
+  }
+  .tools li::before{
+    content:""; position:absolute; left:0; top:.6em;
+    width:6px; height:6px; border-radius:50%; background: var(--accent);
+  }
+  .tools li b{ color: var(--ink); font-weight:600 }
+
+  /* Footer CTA */
+  .cs-cta{
+    margin: clamp(48px, 6vw, 72px) 0 0;
+    padding: clamp(28px, 4vw, 48px);
+    background: var(--ink); color:#fff; border-radius: 20px;
+    text-align: center; position: relative; overflow: hidden;
+  }
+  .cs-cta::before{
+    content:""; position:absolute; inset:-20% -10% auto auto; width:60%; aspect-ratio:1;
+    background: radial-gradient(closest-side, rgba(255,90,31,.18), transparent 70%);
+  }
+  .cs-cta h2{
+    color:#fff; margin: 0 0 14px; font-weight:500;
+    font-size: clamp(26px, 3.4vw, 40px); letter-spacing:-.02em;
+    position:relative;
+  }
+  .cs-cta p{ color:#cfcdc4; max-width: 56ch; margin: 0 auto 24px; font-size: 16px; position:relative }
+  .btn{
+    display:inline-flex; align-items:center; gap:10px;
+    padding: 14px 22px; border-radius: 999px;
+    font-family:var(--sans); font-weight:600; font-size:15px;
+    background: var(--accent); color:#0a0a0a;
+    transition: transform .15s ease, background .2s ease;
+    position:relative;
+  }
+  .btn:hover{ transform: translateY(-1px); background:#ff6a30 }
+  .btn svg{ width:16px; height:16px; transition: transform .2s ease }
+  .btn:hover svg{ transform: translateX(3px) }
+
+  /* Footer */
+  .zd-footer{ background:#000; color:#fff; padding: clamp(48px, 6vw, 80px) 0 28px }
+  .zd-top{ display:flex; justify-content:space-between; align-items:flex-start; gap:24px; flex-wrap:wrap; padding-bottom:36px; border-bottom:1px solid rgba(255,255,255,.12) }
+  .zd-help{ font-family:var(--sans); font-weight:500; font-size: clamp(15px, 1.4vw, 18px); letter-spacing:.005em; line-height:1.4; color:#cfcdc4; max-width:32ch }
+  .zd-help a{ color:var(--accent); border-bottom:1px solid var(--accent); padding-bottom:1px; font-weight:600 }
+  .zd-bottom{ display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; padding-top:24px; color:#a8a69d; font-size:13px }
+  .zd-bottom a{ color:#a8a69d; margin-right:18px }
+  .zd-bottom a:hover{ color:#fff }
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<header class="nav">
+  <div class="nav-inner">
+    <a href="../index-v2.html" class="brand" aria-label="Clay Stan home">
+      <img src="../logos/clay-stan-light.png" alt="Clay Stan" />
+    </a>
+    <a href="../index-v2.html#case-studies" class="nav-back">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      All case studies
+    </a>
+  </div>
+</header>
+
+<!-- Header -->
+<section class="cs-header">
+  <div class="wrap">
+    <span class="crumb"><span class="dot"></span> <a href="../index-v2.html#case-studies">Case studies</a> &middot; Pulsift &times; Radnor Eyewear</span>
+
+    <h1 class="cs-title">$150K of pipeline for Radnor Eyewear, in <em>days</em>.</h1>
+    <p class="cs-sub">Pulsift partnered with Clay Stan as fulfillment for one of their clients, a Shenzhen-based eyewear manufacturer with brands like Guess, Lacoste, and Tommy Hilfiger in their portfolio. Three positive replies in the first three hours.</p>
+
+    <div class="tags">
+      <span>B2B Eyewear</span>
+      <span>Agency partnership</span>
+      <span>Email outreach</span>
+      <span>Fast launch</span>
+    </div>
+
+    <div class="cs-meta">
+      <span><b>Agency:</b> Pulsift</span>
+      <span><b>End client:</b> Radnor Eyewear</span>
+      <span><b>Founder:</b> Sami Maati</span>
+    </div>
+
+    <div class="cs-stats">
+      <div class="cs-stat">
+        <div class="n">$150K</div>
+        <div class="l">Pipeline generated</div>
+        <div class="c">Across 10 opportunities</div>
+      </div>
+      <div class="cs-stat">
+        <div class="n">7<sup>%</sup></div>
+        <div class="l">Reply rate</div>
+        <div class="c">24% of replies positive</div>
+      </div>
+      <div class="cs-stat">
+        <div class="n">10</div>
+        <div class="l">Positive leads</div>
+        <div class="c">Qualified opportunities</div>
+      </div>
+      <div class="cs-stat">
+        <div class="n">3<sup>hr</sup></div>
+        <div class="l">First positive replies</div>
+        <div class="c">From campaign launch</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Body -->
+<section class="cs">
+  <div class="wrap">
+
+    <h2>The <em>setup</em>.</h2>
+    <p>Sami Maati, CEO of <strong>Pulsift</strong>, brought us in as a fulfillment partner for one of their clients: <strong>Radnor Eyewear</strong>.</p>
+    <p>Radnor is an eyewear manufacturing brand based out of Shenzhen, China. Eighteen-plus years of manufacturing experience, with brands like <strong>Guess</strong>, <strong>Lacoste</strong>, and <strong>Tommy Hilfiger</strong> already in the portfolio. The challenge: get them in front of new buyers, fast.</p>
+    <p>Sami needed a partner who could co-design the offer, build the system, and ship live campaigns inside a week. We took the brief on a Monday.</p>
+
+    <h2>The <em>build</em>.</h2>
+    <p>The offer was researched and written mutually with Pulsift&rsquo;s team. Company data was scraped from business directories and enriched through Clay. Every contact double-verified. Email Guard configured so we&rsquo;d skip ESGs and land in primary. Instantly carried the sends.</p>
+    <p>Within hours of going live, replies started flowing.</p>
+
+    <figure class="shot">
+      <img src="pulsift/01-sami-whatsapp.png" alt="Sami Maati, CEO of Pulsift, sharing live campaign results: 9.69% reply rate, 25% positive, $105,000 pipeline value in 4 days, 3 positive replies in 3 hours" loading="lazy" />
+      <figcaption>Sami sharing live results from the campaign as they came in.</figcaption>
+    </figure>
+
+    <div class="pull">
+      <blockquote>&ldquo;Reply rate was at one point 9.69% -- positive was 25%. $105,000 pipeline value added in 4 days of live campaign. 3 positive replies in 3 hours.&rdquo;</blockquote>
+      <cite><b>Sami Maati</b> &middot; CEO, Pulsift</cite>
+    </div>
+
+    <h2>The <em>numbers</em>.</h2>
+    <p>By the time the campaign settled into its rhythm, Radnor was sitting on $150K of pipeline value across 10 qualified opportunities. Sustained 7% reply rate, with 24% of those replies positive.</p>
+
+    <figure class="shot">
+      <img src="pulsift/02-radnor-dashboard.jpg" alt="Instantly.ai dashboard for Radnor Eyewear campaign: 552 contacted, 39 replied, 10 opportunities, $150,000 pipeline value" loading="lazy" />
+      <figcaption>Final campaign dashboard: 552 contacted, 39 replies, 10 opportunities, $150,000 in pipeline.</figcaption>
+    </figure>
+
+    <div class="tools">
+      <h3>The stack we deployed</h3>
+      <ul>
+        <li><b>Co-built offer</b> -- researched and written together with the Pulsift team</li>
+        <li><b>Business directories</b> -- company-data scraping at the source</li>
+        <li><b>Clay</b> -- data enrichment and personalization</li>
+        <li><b>Prospeo, Apollo, Icypeas</b> -- company and person enrichment</li>
+        <li><b>Reoon + BounceBan</b> -- double email verification, including catch-all</li>
+        <li><b>Email Guard</b> -- ESG (Email Security Gateway) avoidance</li>
+        <li><b>Instantly</b> -- campaign delivery and reporting</li>
+      </ul>
+    </div>
+
+    <h2>Hear it from Sami.</h2>
+    <p>Sami recorded a walkthrough of the engagement. Plays right here.</p>
+
+    <div class="video facade"
+         role="button"
+         tabindex="0"
+         aria-label="Play Sami Maati review"
+         data-video-id="uK594RNgyMo"
+         data-si="LOdo5eyUYbOD9eUH">
+      <span class="badge-yt">YouTube</span>
+      <button class="play-btn" aria-hidden="true" tabindex="-1">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+      </button>
+    </div>
+    <p class="video-cap">Watch &middot; Sami Maati, CEO of Pulsift</p>
+
+    <div class="cs-cta">
+      <h2>Want the same trajectory for your business?</h2>
+      <p>Whether you&rsquo;re an agency looking for a fulfillment partner or a founder running outbound yourself -- consultation and audit are free. Book a call and you&rsquo;ll walk away with a structured plan.</p>
+      <a href="../index-v2.html#founder" class="btn">
+        Book a discovery call
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+    <p style="margin-top: 28px; color: var(--muted); font-size: 14px; font-style: italic;">Blue skies, <br/>Team Clay Stan</p>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="zd-footer">
+  <div class="wrap-wide">
+    <div class="zd-top">
+      <div class="zd-help">
+        How can we help? <a href="https://wa.me/19177356201" target="_blank" rel="noopener">Contact us on WhatsApp.</a>
+      </div>
+    </div>
+    <div class="zd-bottom">
+      <div>
+        <a href="../terms.html">Terms &amp; Conditions</a>
+        <a href="../privacy.html">Privacy Notice</a>
+      </div>
+      <span>&copy; <span id="yr">2026</span> claystan LLC.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // Lite-YouTube facade -- clean thumbnail + play button until clicked, then injects the iframe with autoplay
+  (function () {
+    const facades = document.querySelectorAll('.video.facade[data-video-id]');
+    facades.forEach(function (el) {
+      const id = el.dataset.videoId;
+      const si = el.dataset.si || '';
+
+      const probe = new Image();
+      probe.onload  = function () { el.style.backgroundImage = "url('https://i.ytimg.com/vi/" + id + "/maxresdefault.jpg')"; };
+      probe.onerror = function () { el.style.backgroundImage = "url('https://i.ytimg.com/vi/" + id + "/hqdefault.jpg')"; };
+      probe.src = "https://i.ytimg.com/vi/" + id + "/maxresdefault.jpg";
+
+      function activate() {
+        const params = new URLSearchParams();
+        if (si) params.set('si', si);
+        params.set('autoplay', '1');
+        params.set('rel', '0');
+        const iframe = document.createElement('iframe');
+        iframe.src = "https://www.youtube.com/embed/" + id + "?" + params.toString();
+        iframe.title = el.getAttribute('aria-label') || 'Video';
+        iframe.setAttribute('frameborder', '0');
+        iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+        iframe.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+        iframe.setAttribute('allowfullscreen', '');
+        el.innerHTML = '';
+        el.appendChild(iframe);
+        el.classList.remove('facade');
+        el.removeAttribute('role');
+        el.removeAttribute('tabindex');
+      }
+
+      el.addEventListener('click', activate);
+      el.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(); }
+      });
+    });
+  })();
+</script>
+<script src="../clay-stan-logo.js" defer></script>
+</body>
+</html>

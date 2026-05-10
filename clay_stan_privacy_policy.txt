@@ -1,0 +1,161 @@
+Privacy Policy
+Last updated: January 26, 2025
+
+This Privacy Policy outlines Our approaches and methods concerning the gathering, utilization, and sharing of Your information when You access the Service. It also informs You of Your privacy entitlements and legal safeguards afforded to You.
+
+We leverage Your Personal information to deliver and enhance the Service. Through Your utilization of the Service, You consent to the gathering and application of information pursuant to this Privacy Policy.
+
+Interpretation and Definitions
+Interpretation
+Terms beginning with capital letters carry the meanings specified in the following provisions. These definitions retain their meaning whether used singularly or plurally.
+
+Definitions
+Throughout this Privacy Policy:
+
+Account designates a distinct registration You establish to utilize our Service or its components.
+Affiliate denotes an organization that possesses, is possessed by, or shares authority with another entity, whereby "authority" signifies possession of at least 50% of shares, ownership stakes, or other voting instruments for director or management selection.
+Company (referenced as "the Company", "We", "Us" or "Our" throughout this Agreement) denotes Clay Stan.
+Cookies signify diminutive data files stored on Your computing device, mobile apparatus, or comparable hardware by a web platform, documenting Your browsing behavior on that resource and serving various other functions.
+Device indicates any apparatus capable of connecting to the Service including computers, smartphones, or portable electronic tablets.
+Personal Data encompasses any facts concerning a recognizable or readily identifiable person.
+Service pertains to the Website.
+Service Provider designates any biological or corporate entity that processes information on the Company's behalf. This encompasses external organizations or individuals retained by the Company to facilitate the Service, supply the Service in the Company's stead, execute Service-related responsibilities, or support the Company in examining Service utilization.
+Usage Data comprises facts gathered mechanically, either resulting from Service utilization or originating from the Service infrastructure (including, for instance, page visitation timespan).
+Website denotes Clay Stan, reachable at https://claystan.com/
+You pertains to the individual retrieving or engaging with the Service, or the business or comparable legal entity on whose account such individual is retrieving or engaging with the Service, as relevant.
+
+Collecting and Using Your Personal Data
+Types of Data Collected
+Personal Data
+Throughout Your engagement with Our Service, We may solicit You to furnish Us with specified personally recognizable particulars that could facilitate contacting or recognizing You. Personally recognizable specifics may encompass, without limitation:
+
+Email address
+Given and family names
+Phone number
+Usage Data
+Usage Data
+Usage Data is automatically gathered throughout Service operation.
+
+Usage Data might encompass specifics including Your Device's Internet Protocol identifier (including IP address), web browser category, web browser iteration, the portions of our Service You peruse, the moment and period of Your visitation, the period invested in those portions, distinct device markers, and supplementary technical particulars.
+
+When You retrieve the Service via or by way of a portable apparatus, We might automatically gather particular facts, encompassing, but not confined to, the group of portable apparatus You utilize, Your portable apparatus singular marker, the Internet Protocol location of Your portable apparatus, Your portable equipment running system, the form of portable Internet web browser You utilize, singular apparatus markers, and extra technical specifics.
+
+We might additionally gather communications that Your web browser submits whenever You visit our Service or when You retrieve the Service via or by way of a portable apparatus.
+
+Tracking Technologies and Cookies
+We use Cookies and analogous observation methods to track engagement on Our Service and preserve particular facts. Observation methods employed contain indicators, labels, and programming scripts to accumulate and monitor facts and to strengthen and examine Our Service. The observation instruments We employ might encompass:
+
+Cookies or Internet Browser Cookies. A cookie constitutes a diminutive document positioned on Your Equipment. You may direct Your browser to disallow all Cookies or to signal when a Cookie is being directed. Nevertheless, should You reject Cookies, You might not have capability to apply certain functionalities of our Service. Absent You having tailored Your browser parameters to disallow Cookies, our Service might employ Cookies.
+
+Internet Beacons. Segments of our Service and our communications might encompass diminutive computational records termed internet beacons (furthermore designated as transparent images, spot indicators, and solitary-pixel images) that facilitate the Company, as an instance, to quantify customers who have accessed those segments or unsealed a communication and for supplementary applicable website metrics (including, as an illustration, monitoring the attraction of a particular segment and confirming equipment and network reliability).
+
+Cookies might be "Continuing" or "Active Session" Cookies. Continuing Cookies stay on Your computing equipment or portable apparatus when You disengage, whereas Active Session Cookies vanish instantly upon You shutting Your internet browser.
+
+We utilize both Active Session and Continuing Cookies for the functions mentioned below:
+
+Necessary / Essential Cookies
+
+Variety: Active Session Cookies
+
+Supervised by: Us
+
+Purpose: Such Cookies are vital to furnish You with offerings obtainable via the Website and to facilitate Your application of a few of its capabilities. They facilitate confirming customer validation and stopping fraudulent customer accounts. Absent these Cookies, the offerings You have demanded cannot be delivered, and We restrict these Cookies strictly to furnishing such offerings.
+
+Cookies Directive / Authorization Verification Cookies
+
+Variety: Continuing Cookies
+
+Supervised by: Us
+
+Purpose: Such Cookies recognize if customers have greenlit the utilization of cookies on the Website.
+
+Feature-Specific Cookies
+
+Variety: Continuing Cookies
+
+Supervised by: Us
+
+Purpose: Such Cookies permit Us to maintain alternatives You select throughout Website application, including preserving confirmation credentials or linguistic selections. The purpose of such Cookies is delivering a heightened unique engagement and abstaining from requiring You to re-enter your selections on every Website engagement.
+
+Use of Your Personal Data
+The Company might leverage Personal Data for the succeeding objectives:
+
+To deliver and sustain our Service, encompassing to supervise the application of our Service.
+To oversee Your Account: to supervise Your enrollment as a customer of the Service. The Personal Data You furnish can afford You entry to differing capabilities of the Service that are obtainable to You in Your status as an enrolled customer.
+For arrangement implementation: the creation, adherence, and performance of the procurement arrangement for the commodities, products, or facilities You have procured or of any alternate arrangement with Us via the Service.
+To reach out to You: To get in contact with You via electronic mail, wireless communications, text dispatches, or matching electronic communication approaches, like a portable apparatus application's announcements pertaining to updates or enlightening correspondences concerning the functionalities, merchandise, or bargained facilities, encompassing the cybersecurity modifications, when essential or fitting for their operation.
+To furnish You with communications, exclusive prospects, and broad particulars regarding extra merchandise, facilities, and happenings which we present that mimic those which you have currently procured or requested regarding unless You have chosen not to obtain such communications.
+To supervise Your inquiries: To examine and oversee Your petitions to Us.
+For commercial exchanges: We might leverage Your facts to examine or execute a coalescence, divestiture, reorganization, redistribution, annulment, or substitute exchange or transference of certain or all of Our capital, whether in working progression or as component of insolvency, settlement, or comparable activity, in which Personal Data held by Us concerning our Service customers constitutes among the capital transferred.
+For extra objectives: We might leverage Your facts for supplementary applications, including facts examination, spotting application behaviors, identifying the achievement of our advertising efforts and to assess and strengthen our Service, merchandise, facilities, publicity and Your engagement.
+
+We might distribute Your personal facts in the subsequent instances:
+
+With Service Providers: We might distribute Your personal facts with Service Providers to supervise and examine the application of our Service, to reach out to You.
+For commercial exchanges: We might distribute or exchange Your personal facts in correlation with, or throughout discussions of, any coalescence, exchange of Company capital, currency, or procurement of a portion or all of Our functioning to a distinct business.
+With Collaborators: We might distribute Your facts with Our collaborators, by which We will mandate those collaborators to conform to this Privacy Policy. Collaborators encompass Our originating business and whatever else divisions, collaborative ventures, or extra businesses that We direct or that are underneath joint management with Us.
+With cooperative companions: We might distribute Your facts with Our cooperative companions to furnish You with definite merchandise, facilities, or exclusive arrangements.
+With supplementary customers: whenever You distribute personal facts or otherwise participate in the collective domains with supplementary customers, such facts might be perceived by each customer and might be openly dispersed away from.
+With Your authorization: We might disclose Your personal facts for any supplementary objective with Your authorization.
+
+Retention of Your Personal Data
+The Company will preserve Your Personal Data solely as much as is important for the objectives mentioned in this Privacy Policy. We will sustain and apply Your Personal Data to the degree important to conform to our judicial responsibilities (such as, if we are obligated to sustain your facts to conform to enforceable guidelines), manage conflicts, and apply our judicial arrangements and procedures.
+
+The Company will furthermore sustain Usage Data for interior examination reasons. Usage Data is ordinarily sustained for a condensed timeframe, except when this facts is applied to fortify the safety or improve the operation of Our Service, or We are judicially obligated to sustain this facts for expanded timeframes.
+
+Transfer of Your Personal Data
+Your particulars, encompassing Personal Data, is processed at the Company's principal workplaces and in every location where the individuals engaged in the manipulation are positioned. It suggests that this particulars might be transferred to — and held on — equipment positioned external of Your area, territory, nation or different governmental jurisdiction where the security guidelines might diverge from those from Your territory.
+
+Your settlement to this Privacy Policy accompanied by Your distribution of such particulars expresses Your settlement to that transfer.
+
+The Company will execute every reasonable action to guarantee that Your facts is managed safely and in alignment with this Privacy Policy and zero distribution of Your Personal Data will manifest to an organization or a jurisdiction except there are sufficient precautions in location encompassing the security of Your facts and extra personal specifics.
+
+Delete Your Personal Data
+You retain the privilege to eliminate or appeal that We facilitate in eliminating the Personal Data that We have accumulated concerning You.
+
+Our Service might furnish You the competence to eliminate definite facts concerning You from inside the Service.
+
+You might revise, refine, or eliminate Your facts at any instance by enrolling into Your Account, if You possess one, and going to the membership parameters segment that permits You to govern Your personal specifics. You might furthermore reach out to Us to appeal to gain entry to, revise, or eliminate any personal facts that You have delivered to Us.
+
+Take note, nevertheless, that We might need to sustain definite facts when We possess a judicial responsibility or appropriate cause to execute so.
+
+Disclosure of Your Personal Data
+Business Transactions
+If the Company is implicated in a coalescence, procurement or capital exchange, Your Personal Data might be transferred. We will communicate notification previous to Your Personal Data is transferred and comes underneath a distinct Privacy Policy.
+
+Law enforcement
+Underneath specific situations, the Company might be obligated to distribute Your Personal Data if obligated to execute so by guidelines or in reaction to legitimate petitions by public entities (including a tribunal or a legislative division).
+
+Other legal requirements
+The Company might distribute Your Personal Data in honest conviction that such activity is vital to:
+
+Adhere to a judicial responsibility
+Guard and maintain the entitlements or possessions of the Company
+Inhibit or scrutinize plausible wrongdoing in correlation with the Service
+Guard the individual protection of Users of the Service or the masses
+Guard versus judicial responsibility
+
+Security of Your Personal Data
+The safeguarding of Your Personal Data matters to Us, yet recollect that no transmission process via the Internet, or shop approach is completely protected. Whereas We endeavor to employ commercially fitting approaches to defend Your Personal Data, We cannot assure its complete safeguarding.
+
+Children's Privacy
+Our Service does not target anybody underneath the period of thirteen. We do not intentionally accumulate recognizable facts from anybody underneath the period of thirteen. If You function as a parental figure or custodian and You recognize that Your youngster has distributed Us with Personal Data, kindly reach out to Us. If We recognize that We have accumulated Personal Data from anybody underneath the period of thirteen absent verification of guardian settlement, We implement actions to eliminate that particulars from Our equipment.
+
+If We must count on settlement as a judicial justification for handling Your particulars and Your territory mandates settlement from a guardian, We might mandate Your guardian's settlement previous to We accumulate and apply that particulars.
+
+Links to Other Websites
+Our Service might include connections to supplementary websites that are not administered by Us. Should You engage a non-affiliated connection, You will be sent to that non-affiliated outlet. We powerfully recommend You analyze the Privacy Policy of each outlet You go to.
+
+We maintain no authority over and presume no accountability for the substance, privacy procedures or approaches of any non-affiliated outlets or solutions.
+
+Changes to this Privacy Policy
+We might modify Our Privacy Policy occasionally. We will apprise You of every changes by displaying the current Privacy Policy on this webpage.
+
+We will advise You by electronic mail and/or a notable notification on Our Service, previous to the modification turning into active and amend the "Last modified" period at the apex of this Privacy Policy.
+
+You are prompted to examine this Privacy Policy recurrently for every changes. Changes to this Privacy Policy come to be active whenever they are displayed on this webpage.
+
+Contact Us
+If You have inquiries pertaining to this Privacy Policy, You are able to reach out to us:
+
+By email: talha@claystan.com

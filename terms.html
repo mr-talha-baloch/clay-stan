@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Terms & Conditions | Clay Stan</title>
+<meta name="description" content="Terms & Conditions for Claystan LLC, doing business as Clay Stan -- covering service delivery, payments, cancellations, and your rights as a client." />
+
+<link rel="preconnect" href="https://api.fontshare.com" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,600,700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<link rel="icon" type="image/png" href="logos/clay-stan-light.png" />
+
+<style>
+  :root{
+    --bg:#F6F4EE; --ink:#0F0F10; --ink-2:#2A2A2C; --muted:#6E6E73;
+    --line:#E4E0D7; --line-2:#D8D3C7; --card:#FFFFFF;
+    --accent:#FF5A1F;
+    --maxw:880px;
+    --pad:clamp(16px, 5vw, 56px);
+    --sans:'Vanilla Sans','Satoshi','Inter',system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:var(--sans); font-size:16px; line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--ink); text-decoration:none}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding-left:var(--pad); padding-right:var(--pad)}
+  .wrap-wide{max-width:1240px; margin:0 auto; padding-left:var(--pad); padding-right:var(--pad)}
+
+  /* Nav (matches homepage) */
+  .nav{
+    position:sticky; top:0; z-index:50;
+    backdrop-filter:saturate(140%) blur(10px);
+    background:rgba(246,244,238,.78);
+    border-bottom:1px solid transparent;
+    transition:border-color .2s ease;
+  }
+  .nav.scrolled{border-color:var(--line)}
+  .nav-inner{display:flex; align-items:center; justify-content:space-between; height:68px}
+  .brand{display:inline-flex; align-items:center; gap:10px}
+  .brand img{
+    height: 56px; width:auto; display:block;
+  }
+  @media (max-width: 520px){ .brand img{ height: 46px } }
+  .nav-back{
+    font-size:14px; font-weight:500; color:var(--ink-2);
+    display:inline-flex; align-items:center; gap:8px;
+    padding:9px 16px; border:1px solid var(--line-2); border-radius:999px;
+    transition:background .2s, border-color .2s, color .2s;
+  }
+  .nav-back:hover{background:#fff; border-color:var(--ink); color:var(--ink)}
+
+  /* Header */
+  .legal-header{
+    padding: clamp(40px, 6vw, 72px) 0 clamp(28px, 4vw, 48px);
+    border-bottom:1px solid var(--line);
+  }
+  .crumb{
+    font-family:var(--mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase;
+    color:var(--muted); display:inline-flex; align-items:center; gap:8px;
+  }
+  .crumb .dot{width:6px;height:6px;border-radius:50%;background:var(--accent)}
+  h1.legal-title{
+    margin: clamp(14px, 2vw, 22px) 0 clamp(10px, 1.6vw, 16px);
+    font-family:var(--sans); font-weight:500;
+    font-size: clamp(36px, 5.6vw, 64px);
+    letter-spacing:-.025em; line-height:1.02;
+  }
+  .legal-meta{font-family:var(--mono); font-size:12px; color:var(--muted); letter-spacing:.06em}
+
+  /* Body content */
+  .legal{
+    padding: clamp(32px, 5vw, 64px) 0 clamp(64px, 8vw, 96px);
+  }
+  .legal h2{
+    font-family:var(--sans); font-weight:600;
+    font-size: clamp(20px, 2.2vw, 26px); letter-spacing:-.01em;
+    margin: clamp(32px, 4vw, 48px) 0 clamp(10px, 1.4vw, 14px);
+    padding-top: clamp(20px, 3vw, 28px);
+    border-top:1px solid var(--line);
+  }
+  .legal h2:first-of-type{border-top:0; padding-top:0; margin-top:0}
+  .legal p, .legal li{ color:var(--ink-2); font-size:16px; line-height:1.7 }
+  .legal p{margin: 0 0 14px}
+  .legal ul, .legal ol{padding-left:20px; margin: 0 0 16px}
+  .legal li{margin-bottom:8px}
+  .legal strong{color:var(--ink); font-weight:600}
+  .legal a{color:var(--accent); border-bottom:1px solid rgba(255,90,31,.4)}
+  .legal a:hover{border-bottom-color:var(--accent)}
+  .legal .callout{
+    margin: 24px 0;
+    padding: 18px 20px;
+    border-left: 3px solid var(--accent);
+    background:#FFF7F1;
+    border-radius: 0 8px 8px 0;
+    font-size:15px; color:var(--ink-2);
+  }
+
+  /* Footer (compact, matching homepage Zendesk-style) */
+  .zd-footer{
+    background:#000; color:#fff;
+    padding: clamp(48px, 6vw, 80px) 0 28px;
+  }
+  .zd-top{
+    display:flex; justify-content:space-between; align-items:flex-start; gap:24px; flex-wrap:wrap;
+    padding-bottom:36px; border-bottom:1px solid rgba(255,255,255,.12);
+  }
+  .zd-help{
+    font-family:var(--sans); font-weight:500;
+    font-size: clamp(15px, 1.4vw, 18px);
+    letter-spacing: .005em; line-height:1.4;
+    color:#cfcdc4;
+    max-width: 32ch;
+  }
+  .zd-help a{color:var(--accent); border-bottom:2px solid var(--accent); padding-bottom:2px}
+  .zd-help a:hover{opacity:.85}
+  .zd-socials{display:flex; gap:14px; flex-wrap:wrap}
+  .zd-socials a{
+    width:40px; height:40px; border-radius:50%;
+    background:rgba(255,255,255,.06);
+    display:flex; align-items:center; justify-content:center; color:#fff;
+    transition:background .2s, transform .2s;
+  }
+  .zd-socials a:hover{background:var(--accent); transform:translateY(-2px)}
+  .zd-socials svg{width:18px;height:18px}
+  .zd-wordmark{
+    margin-top:24px;
+    font-family:'Inter','Satoshi',sans-serif; font-weight:700;
+    font-size: clamp(56px, 17vw, 240px);
+    letter-spacing:-.04em; line-height:1; padding-bottom:.08em;
+    color:#fff; user-select:none; white-space:nowrap; overflow:hidden;
+  }
+  .zd-bottom{
+    display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap;
+    padding-top:24px; color:#a8a69d; font-size:13px;
+  }
+  .zd-bottom a{color:#a8a69d; margin-right:18px; border:0}
+  .zd-bottom a:hover{color:#fff}
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<header class="nav" id="nav">
+  <div class="wrap-wide nav-inner">
+    <a href="index-v2.html" class="brand" aria-label="Clay Stan home">
+      <img src="logos/clay-stan-light.png" alt="Clay Stan" />
+    </a>
+    <a href="index-v2.html" class="nav-back">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to home
+    </a>
+  </div>
+</header>
+
+<!-- Header -->
+<section class="legal-header">
+  <div class="wrap">
+    <span class="crumb"><span class="dot"></span> Legal</span>
+    <h1 class="legal-title">Terms &amp; Conditions</h1>
+    <span class="legal-meta">Claystan LLC &middot; Last updated: May 3, 2026</span>
+  </div>
+</section>
+
+<!-- Body -->
+<section class="legal">
+  <div class="wrap">
+    <p>These Terms &amp; Conditions (&ldquo;Agreement&rdquo;) govern your access to <a href="https://claystan.com">claystan.com</a> and every purchase of Claystan LLC&rsquo;s go-to-market, automation, and CRM enrichment services (&ldquo;Services&rdquo;) made through our website or any authorized Claystan LLC invoice. By browsing the site, purchasing, or using our Services, you agree to be bound by this Agreement.</p>
+
+    <h2>1. Scope</h2>
+    <p>This Agreement applies to all website visitors and clients of Claystan LLC, doing business as Clay Stan (&ldquo;Clay Stan,&rdquo; &ldquo;we,&rdquo; &ldquo;our,&rdquo; or &ldquo;us&rdquo;), a Wyoming-registered limited liability company. &ldquo;Client&rdquo; or &ldquo;you&rdquo; means the individual or business entity that accesses the site or purchases the Services.</p>
+
+    <h2>2. Service Delivery &amp; Timeline</h2>
+    <p>For clients purchasing our Services, delivery timelines typically follow this structure unless otherwise specified in your specific proposal:</p>
+    <ul>
+      <li><strong>Onboarding &amp; Infrastructure Set-up:</strong> Within 1--2 business days of payment and receipt of onboarding materials.</li>
+      <li><strong>Automation &amp; CRM Enrichment Set-up:</strong> By business day 3--5, depending on complexity.</li>
+      <li><strong>Workflow / Campaign Launch:</strong> Within the timeframe outlined in your specific project scope.</li>
+      <li><strong>Ongoing Management &amp; Reporting:</strong> Ongoing once systems are live, delivered via your preferred communication channels (e.g., Slack, email, CRM dashboards).</li>
+    </ul>
+    <p>All Services are delivered digitally. No physical goods are shipped.</p>
+
+    <h2>3. Currency</h2>
+    <p>All prices are displayed and charged in United States Dollars (USD).</p>
+
+    <h2>4. Performance &amp; Remediation</h2>
+    <p>Where Clay Stan has committed to specific deliverables or system builds in a written proposal, and that commitment is not met within the agreed period, we will provide the following remediation at our election:</p>
+    <ul>
+      <li>Extend the build/campaign time at no additional cost until the commitment is met; or</li>
+      <li>Issue a pro-rata service credit for the shortfall applicable to a future invoice.</li>
+    </ul>
+    <p>No cash refunds are issued for services already rendered. Remediation under this section is your sole remedy for performance shortfalls.</p>
+
+    <h2>5. No-Refund Policy</h2>
+    <p>Fees for services already rendered are non-refundable. Because our product consists of digital services, intellectual property, and technical labor, there is nothing to &ldquo;return.&rdquo;</p>
+
+    <h2>6. Cancellations &amp; Plan Changes</h2>
+    <ul>
+      <li><strong>Monthly Retainers:</strong> You may cancel at any time with 30 days&rsquo; written notice before your next billing date.</li>
+      <li><strong>Project-Based / Build Plans:</strong> You may pause or terminate at any point. Work already completed or in-progress at the time of cancellation will be billed pro-rata.</li>
+    </ul>
+    <p>Submit all cancellation requests in writing to <a href="mailto:talha@claystan.com">talha@claystan.com</a>.</p>
+
+    <h2>7. Delivery Delays Outside Our Control</h2>
+    <p>If circumstances outside our reasonable control (including force majeure events, third-party platform outages like HubSpot or LinkedIn, or your failure to provide required onboarding information) delay our service delivery, we will:</p>
+    <ul>
+      <li>Notify you promptly upon identifying the delay;</li>
+      <li>Provide an amended timeline in writing; and</li>
+      <li>Ensure service continuity to the best of our ability once the blocking factor is resolved.</li>
+    </ul>
+
+    <h2>8. Client Obligations &amp; Acceptable Use</h2>
+    <p>By accessing our website or purchasing our Services, you represent and warrant that:</p>
+    <ul>
+      <li>You have the legal authority to enter into this Agreement;</li>
+      <li>All data, lists, or materials you provide to us have been collected lawfully, and you have all necessary rights to use them for outreach and enrichment;</li>
+      <li>You will not use our Services to send unsolicited communications in violation of applicable laws (e.g., CAN-SPAM, GDPR);</li>
+      <li>You will not attempt to bypass technical protections, scrape our website at scale, or interfere with how our site operates;</li>
+      <li>You will not republish, sell, or commercially exploit our site content without written permission.</li>
+    </ul>
+    <p>Violation of these obligations may result in immediate suspension or termination of Services without refund.</p>
+
+    <h2>9. Intellectual Property &amp; Submissions</h2>
+    <p>All trademarks, logos, copy, graphics, and source code on <a href="https://claystan.com">claystan.com</a> are the property of Clay Stan or its licensors.</p>
+    <p>Upon receipt of full payment for Services, Clay Stan grants you a non-exclusive, non-transferable license to use the specific deliverables, workflows, and campaign copy created for you (&ldquo;Deliverables&rdquo;) solely for your internal business purposes.</p>
+    <p>We retain all right, title, and interest in and to all underlying methodologies, automation frameworks, templates, and proprietary tools used to produce the Deliverables. Nothing in this Agreement transfers ownership of our pre-existing intellectual property to you.</p>
+
+    <h2>10. Limitation of Liability</h2>
+    <p><strong>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW:</strong></p>
+    <p>CLAY STAN&rsquo;S TOTAL AGGREGATE LIABILITY FOR ANY CLAIM ARISING OUT OF OR RELATING TO THE SERVICES, THE WEBSITE, OR THIS AGREEMENT SHALL NOT EXCEED THE TOTAL FEES PAID BY CLIENT IN THE THREE (3) MONTHS IMMEDIATELY PRECEDING THE EVENT GIVING RISE TO THE CLAIM.</p>
+    <p>IN NO EVENT SHALL CLAY STAN BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING LOST PROFITS, LOSS OF DATA, OR LOSS OF BUSINESS OPPORTUNITY, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.</p>
+
+    <h2>11. Governing Law &amp; Dispute Resolution</h2>
+    <p>This Agreement is governed by the laws of the State of Wyoming, USA, without regard to its conflict-of-law principles.</p>
+    <p>Before initiating any formal dispute, both parties agree to attempt good-faith resolution by contacting <a href="mailto:talha@claystan.com">talha@claystan.com</a> and allowing 30 days for resolution. If unresolved, disputes shall be submitted to binding arbitration, with proceedings held in Sheridan County, Wyoming.</p>
+    <p>You agree not to initiate a chargeback or payment dispute before first contacting us and allowing 10 business days to resolve the issue.</p>
+
+    <h2>12. Data &amp; Privacy</h2>
+    <p>We process personal data and utilize cookies in accordance with our <a href="privacy.html">Privacy Policy</a>. By browsing the site or purchasing our Services, you acknowledge and agree to the collection and use of data as described therein.</p>
+
+    <h2>13. Third-Party Content &amp; Links</h2>
+    <p>Our site may contain links to third-party sites or services. We provide these for convenience and assume no responsibility for their content, privacy practices, or terms. You may link to our homepage provided the link is not deceptive and does not falsely imply endorsement.</p>
+
+    <h2>14. Changes to This Agreement</h2>
+    <p>We may update these Terms &amp; Conditions from time to time. Material updates will be communicated to active clients by email at least 14 days before taking effect. Continued use of the website or Services after the effective date constitutes acceptance of the updated terms.</p>
+
+    <h2>15. Entire Agreement</h2>
+    <p>This Agreement, together with any applicable written proposal, constitutes the entire agreement between you and Claystan LLC with respect to the website and Services, superseding all prior agreements or understandings.</p>
+
+    <h2>16. Contact Us</h2>
+    <ul>
+      <li><strong>Email:</strong> <a href="mailto:talha@claystan.com">talha@claystan.com</a></li>
+      <li><strong>Phone:</strong> <a href="tel:+19177356201">+1 917 735 6201</a></li>
+      <li><strong>Mail:</strong> Claystan LLC, 30 N Gould St Ste R, Sheridan, WY 82801</li>
+    </ul>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="zd-footer">
+  <div class="wrap-wide">
+    <div class="zd-top">
+      <div class="zd-help">
+        How can we help? <a href="https://wa.me/19177356201" target="_blank" rel="noopener">Contact us on WhatsApp.</a>
+      </div>
+      <div class="zd-socials" aria-label="Social links">
+        <a href="https://www.linkedin.com/in/talhasells/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45C23.21 24 24 23.23 24 22.28V1.72C24 .77 23.21 0 22.23 0z"/></svg></a>
+        <a href="https://www.youtube.com/@ClayStan-gtm" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8ZM9.6 15.6V8.4l6.2 3.6-6.2 3.6Z"/></svg></a>
+        <a href="https://wa.me/19177356201" aria-label="WhatsApp" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4a7.94 7.94 0 0 0-6.88 11.9L4 20l4.2-1.1a7.94 7.94 0 0 0 3.85.98h.01c4.38 0 7.94-3.56 7.94-7.94a7.88 7.88 0 0 0-2.4-5.62Zm-5.55 12.21h-.01a6.6 6.6 0 0 1-3.36-.92l-.24-.14-2.5.65.67-2.43-.16-.25a6.59 6.59 0 0 1 5.6-10.09 6.55 6.55 0 0 1 4.66 1.93 6.55 6.55 0 0 1 1.93 4.66 6.6 6.6 0 0 1-6.59 6.59Z"/></svg></a>
+      </div>
+    </div>
+    <div class="zd-wordmark" aria-hidden="true">clay stan</div>
+    <div class="zd-bottom">
+      <div>
+        <a href="terms.html">Terms &amp; Conditions</a>
+        <a href="privacy.html">Privacy Notice</a>
+        <a href="#">Cookie Notice</a>
+        <a href="#">Trust Center</a>
+      </div>
+      <span>© <span id="yr">2026</span> claystan LLC.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 8);
+  document.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+</script>
+<script src="clay-stan-logo.js" defer></script>
+</body>
+</html>

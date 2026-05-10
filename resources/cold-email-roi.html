@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Cold Email ROI Calculator | Clay Stan</title>
+<meta name="description" content="Plug in your sending volume, reply rate, close rate, and average deal size. See what 30 days of outbound is actually worth -- pipeline, deals, ROI multiple, and cost per meeting." />
+
+<link rel="preconnect" href="https://api.fontshare.com" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,600,700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<link rel="icon" type="image/png" href="../logos/clay-stan-light.png" />
+
+<style>
+  :root{
+    --bg:#F6F4EE; --ink:#0F0F10; --ink-2:#2A2A2C; --muted:#6E6E73;
+    --line:#E4E0D7; --line-2:#D8D3C7; --card:#FFFFFF;
+    --accent:#FF5A1F;
+    --r-lg:24px;
+    --maxw:1240px;
+    --pad:clamp(16px, 5vw, 56px);
+    --sans:'Vanilla Sans','Satoshi','Inter',system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    --serif:'Instrument Serif','Times New Roman',serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{
+    background-color:var(--bg);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:16px; line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--ink); text-decoration:none}
+
+  .wrap{max-width:var(--maxw); margin:0 auto; padding-left:var(--pad); padding-right:var(--pad)}
+
+  /* Nav */
+  .nav{ position:sticky; top: clamp(10px,1.4vw,18px); z-index:50; padding: 0 var(--pad) }
+  .nav-inner{
+    max-width: 980px; margin: 0 auto; height: 64px;
+    padding: 6px 6px 6px 16px;
+    background: rgba(255,255,255,.78);
+    backdrop-filter: blur(20px) saturate(150%);
+    border:1px solid rgba(15,15,16,.08); border-radius: 999px;
+    box-shadow: 0 8px 28px -10px rgba(15,15,16,.10), 0 1px 0 rgba(255,255,255,.5) inset;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .brand{display:inline-flex; align-items:center; gap:10px}
+  .brand img{ height:44px; width:auto }
+  .nav-back{
+    display:inline-flex; align-items:center; gap:8px;
+    padding: 9px 16px; border:1px solid var(--line-2); border-radius:999px;
+    font-size:14px; font-weight:500; color:var(--ink-2);
+    transition: background .2s, color .2s, border-color .2s;
+  }
+  .nav-back:hover{background:#fff; color:var(--ink); border-color:var(--ink)}
+
+  /* Header */
+  .header{
+    padding: clamp(48px, 7vw, 96px) 0 clamp(24px, 3vw, 36px);
+  }
+  .crumb{
+    font-size: 12px; color: var(--muted); font-weight: 500;
+    letter-spacing:.04em; display:inline-flex; align-items:center; gap: 8px;
+  }
+  .crumb .dot{width:6px; height:6px; border-radius:50%; background:var(--accent)}
+  .crumb a{ color: var(--ink-2) }
+  .crumb a:hover{ color: var(--ink) }
+  .title{
+    margin: clamp(14px, 2vw, 22px) 0 0;
+    font-family: var(--sans); font-weight: 500;
+    font-size: clamp(36px, 5.6vw, 68px);
+    line-height: 1.04; letter-spacing: -.034em;
+    max-width: 22ch;
+  }
+  .title em{ font-family: var(--serif); font-style: italic; font-weight: 400 }
+  .deck{
+    margin-top: clamp(16px, 2vw, 22px);
+    font-size: clamp(16px, 1.4vw, 18px); line-height: 1.55;
+    color: var(--ink-2);
+    max-width: 64ch;
+  }
+
+  /* Calc grid */
+  .calc{
+    padding: clamp(24px, 3vw, 36px) 0 clamp(64px, 8vw, 104px);
+  }
+  .calc-grid{
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: clamp(16px, 2vw, 22px);
+    align-items: start;
+  }
+  @media (max-width: 980px){
+    .calc-grid{ grid-template-columns: 1fr }
+  }
+
+  /* Inputs panel */
+  .calc-inputs{
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    padding: clamp(22px, 2.6vw, 32px);
+  }
+  .calc-inputs .panel-head{
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: clamp(16px, 2vw, 22px);
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--line);
+  }
+  .calc-inputs h2{
+    margin: 0;
+    font-family: var(--sans); font-weight: 500;
+    font-size: clamp(20px, 1.8vw, 24px);
+    letter-spacing: -.018em;
+  }
+  .calc-inputs h2 em{ font-family: var(--serif); font-style: italic; font-weight: 400 }
+  .reset-btn{
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 7px 12px; border-radius: 999px;
+    background: transparent;
+    border: 1px solid var(--line);
+    font-family: var(--sans); font-weight: 500; font-size: 12px;
+    color: var(--ink-2); cursor: pointer;
+    transition: border-color .15s, color .15s, background .15s;
+  }
+  .reset-btn:hover{ border-color: var(--ink); color: var(--ink); background: var(--bg) }
+  .reset-btn svg{ width: 12px; height: 12px }
+
+  /* Input row */
+  .row{
+    padding: clamp(14px, 1.6vw, 18px) 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .row:last-of-type{ border-bottom: 0 }
+  .row .head{
+    display: flex; justify-content: space-between; align-items: baseline;
+    gap: 16px;
+    margin-bottom: 10px;
+  }
+  .row .lbl{
+    font-family: var(--sans); font-weight: 600;
+    font-size: 14px; color: var(--ink);
+  }
+  .row .hint{
+    display: block;
+    font-weight: 400; font-size: 12px;
+    color: var(--muted); margin-top: 2px;
+  }
+  .row .numwrap{
+    display: flex; align-items: center; gap: 4px;
+    flex-shrink: 0;
+  }
+  .row .numwrap .pre{
+    color: var(--muted); font-weight: 600; font-size: 14px;
+    font-family: var(--sans);
+  }
+  .row input[type="number"]{
+    width: 90px;
+    padding: 7px 10px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: #fff;
+    color: var(--ink);
+    font-family: var(--sans); font-weight: 600; font-size: 14px;
+    text-align: right;
+    -moz-appearance: textfield;
+    transition: border-color .15s, background .15s;
+  }
+  .row input[type="number"]::-webkit-outer-spin-button,
+  .row input[type="number"]::-webkit-inner-spin-button{
+    -webkit-appearance: none; margin: 0;
+  }
+  .row input[type="number"]:focus{
+    outline: none;
+    border-color: var(--accent);
+    background: #FFF8F3;
+  }
+  .row .numwrap .suf{
+    color: var(--muted); font-weight: 500; font-size: 13px;
+    font-family: var(--sans);
+    margin-left: 2px;
+  }
+
+  /* Range slider, cross-browser */
+  .row input[type="range"]{
+    -webkit-appearance: none; appearance: none;
+    width: 100%; height: 4px; padding: 0; margin: 4px 0 0;
+    background: transparent;
+    cursor: pointer;
+  }
+  .row input[type="range"]:focus{ outline: none }
+
+  /* Track */
+  .row input[type="range"]::-webkit-slider-runnable-track{
+    height: 4px; border-radius: 999px;
+    background: linear-gradient(
+      to right,
+      var(--accent) 0%, var(--accent) var(--pct, 50%),
+      var(--line) var(--pct, 50%), var(--line) 100%
+    );
+  }
+  .row input[type="range"]::-moz-range-track{
+    height: 4px; border-radius: 999px;
+    background: var(--line);
+  }
+  .row input[type="range"]::-moz-range-progress{
+    height: 4px; border-radius: 999px;
+    background: var(--accent);
+  }
+  /* Thumb */
+  .row input[type="range"]::-webkit-slider-thumb{
+    -webkit-appearance: none; appearance: none;
+    width: 18px; height: 18px; border-radius: 50%;
+    background: #fff;
+    border: 2px solid var(--accent);
+    margin-top: -7px;
+    box-shadow: 0 2px 6px rgba(255,90,31,.25);
+    cursor: grab;
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .row input[type="range"]::-webkit-slider-thumb:active{
+    cursor: grabbing;
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(255,90,31,.4);
+  }
+  .row input[type="range"]::-moz-range-thumb{
+    width: 18px; height: 18px; border-radius: 50%;
+    background: #fff;
+    border: 2px solid var(--accent);
+    box-shadow: 0 2px 6px rgba(255,90,31,.25);
+    cursor: grab;
+  }
+  /* Min/max scale */
+  .row .scale{
+    display: flex; justify-content: space-between;
+    margin-top: 6px;
+    font-size: 11px; color: var(--muted);
+    font-family: var(--sans); font-weight: 500;
+    letter-spacing: .02em;
+  }
+
+  /* OUTPUT PANEL — dark espresso, brand-matched */
+  .calc-output{
+    --mx: 50%; --my: 0%;
+    position: sticky;
+    top: clamp(96px, 12vw, 120px);
+    background:
+      radial-gradient(140% 90% at 100% 0%, rgba(255,90,31,.13), transparent 55%),
+      linear-gradient(168deg, #1A130C 0%, #0A0805 55%, #040302 100%);
+    border-radius: var(--r-lg);
+    padding: clamp(26px, 3vw, 36px);
+    color: #FBF6EE;
+    box-shadow:
+      0 24px 60px -28px rgba(8,5,2,.55),
+      inset 0 1px 0 rgba(255,200,150,.06),
+      inset 0 0 0 1px rgba(255,255,255,.025);
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .calc-output::before{
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background-image: radial-gradient(rgba(255,220,180,.05) 1px, transparent 1px);
+    background-size: 22px 22px;
+    opacity: .5; mix-blend-mode: screen;
+  }
+  .calc-output > *{ position: relative }
+
+  @media (max-width: 980px){
+    .calc-output{ position: static }
+  }
+
+  .out-tag{
+    display: flex; align-items: baseline; gap: 10px;
+    font-family: var(--serif); font-style: italic;
+    font-size: clamp(15px, 1.15vw, 17px);
+    margin-bottom: 12px;
+  }
+  .out-tag .num{ color: var(--accent) }
+  .out-tag .sep{
+    color: rgba(255,235,210,.32);
+    font-style: normal; font-family: var(--sans); font-weight: 500;
+    transform: translateY(-1px);
+  }
+  .out-tag .label{ color: rgba(255,235,210,.92) }
+
+  /* Hero ROI metric */
+  .out-hero{ margin-top: 8px }
+  .out-hero .multiple{
+    font-family: var(--sans); font-weight: 500;
+    font-size: clamp(72px, 9vw, 120px);
+    line-height: .92; letter-spacing: -.04em;
+    color: #FBF6EE;
+    text-shadow: 0 0 70px rgba(255,90,31,.20);
+    display: inline-flex; align-items: flex-start; gap: 4px;
+  }
+  .out-hero .multiple sup{
+    font-size: .35em; color: var(--accent);
+    line-height: 1; margin-top: .55em; font-weight: 600;
+    vertical-align: top;
+  }
+  .out-hero .label{
+    margin-top: 6px;
+    font-family: var(--sans); font-weight: 500;
+    font-size: 13px; color: rgba(255,235,210,.6);
+  }
+
+  /* Sub-stats grid */
+  .out-stats{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(12px, 1.6vw, 18px);
+    margin-top: clamp(20px, 2.4vw, 28px);
+    padding-top: clamp(20px, 2.4vw, 28px);
+    border-top: 1px solid rgba(255,220,180,.10);
+  }
+  .out-stats .stat{
+    display: flex; flex-direction: column; gap: 4px;
+  }
+  .out-stats .stat .v{
+    font-family: var(--sans); font-weight: 500;
+    font-size: clamp(22px, 2.4vw, 30px);
+    line-height: 1; letter-spacing: -.02em;
+    color: #FBF6EE;
+  }
+  .out-stats .stat .v sup{
+    font-size: .55em; color: var(--accent); margin-left: 2px; font-weight: 600;
+  }
+  .out-stats .stat .l{
+    font-size: 12px; color: rgba(255,235,210,.55);
+    font-family: var(--sans); font-weight: 500;
+  }
+
+  /* Funnel breakdown */
+  .out-funnel{
+    margin-top: clamp(20px, 2.4vw, 28px);
+    padding-top: clamp(20px, 2.4vw, 28px);
+    border-top: 1px solid rgba(255,220,180,.10);
+  }
+  .out-funnel-head{
+    display: flex; align-items: baseline; justify-content: space-between;
+    font-family: var(--serif); font-style: italic;
+    font-size: 14px;
+    margin-bottom: 14px;
+  }
+  .out-funnel-head .label{ color: rgba(255,235,210,.75) }
+  .out-funnel-head .meta{
+    color: rgba(255,235,210,.45);
+    font-family: var(--sans); font-style: normal;
+    font-size: 11px; letter-spacing: .12em; text-transform: uppercase;
+  }
+
+  .funnel-step{
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 10px;
+    padding: 8px 0;
+    border-top: 1px dashed rgba(255,220,180,.08);
+  }
+  .funnel-step:first-of-type{ border-top: 0; padding-top: 0 }
+  .funnel-step .name{
+    font-family: var(--sans); font-weight: 500; font-size: 13px;
+    color: rgba(255,235,210,.78);
+  }
+  .funnel-step .name small{
+    color: rgba(255,235,210,.4); font-weight: 500;
+    margin-left: 6px;
+  }
+  .funnel-step .v{
+    font-family: var(--sans); font-weight: 600; font-size: 13.5px;
+    color: #FBF6EE;
+    font-variant-numeric: tabular-nums;
+  }
+  .funnel-step .bar{
+    grid-column: 1 / -1;
+    margin-top: 6px;
+    height: 2px; border-radius: 999px;
+    background: rgba(255,220,180,.06);
+    overflow: hidden;
+  }
+  .funnel-step .bar > span{
+    display: block; height: 100%;
+    background: linear-gradient(90deg, var(--accent), #FFB38A);
+    border-radius: 999px;
+    box-shadow: 0 0 8px rgba(255,90,31,.45);
+    transition: width .4s cubic-bezier(.2,.8,.2,1);
+  }
+
+  /* Footnote / methodology */
+  .methodology{
+    margin-top: clamp(40px, 5vw, 64px);
+    padding: clamp(24px, 3vw, 36px);
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+  }
+  .methodology h3{
+    margin: 0 0 8px;
+    font-family: var(--sans); font-weight: 600;
+    font-size: clamp(16px, 1.3vw, 18px);
+  }
+  .methodology p{
+    margin: 0 0 12px;
+    font-size: 14px; color: var(--ink-2); line-height: 1.6;
+  }
+  .methodology p:last-child{ margin-bottom: 0 }
+  .methodology code{
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 12.5px;
+    background: #FBFAF6;
+    padding: 1px 6px; border-radius: 4px;
+    border: 1px solid var(--line);
+    color: var(--ink);
+  }
+
+  /* CTA strip */
+  .cta-strip{
+    margin-top: clamp(40px, 5vw, 64px);
+    padding: clamp(28px, 3vw, 40px) clamp(24px, 2.6vw, 36px);
+    background: var(--ink);
+    color: #fff;
+    border-radius: var(--r-lg);
+    display: grid; grid-template-columns: 1.4fr 1fr;
+    gap: 24px; align-items: center;
+    position: relative; overflow: hidden;
+  }
+  .cta-strip::before{
+    content:""; position:absolute; inset:auto -10% -40% auto; width:50%; aspect-ratio:1;
+    background: radial-gradient(closest-side, rgba(255,90,31,.22), transparent 70%);
+    pointer-events:none;
+  }
+  @media (max-width: 720px){ .cta-strip{ grid-template-columns: 1fr } }
+  .cta-strip h2{
+    margin: 0; color: #fff; font-family: var(--sans);
+    font-weight: 500; font-size: clamp(22px, 2.4vw, 30px);
+    letter-spacing: -.02em; line-height: 1.15;
+  }
+  .cta-strip h2 em{ font-family: var(--serif); font-style: italic; font-weight: 400 }
+  .cta-strip p{ color: #cfcdc4; margin: 8px 0 0; font-family: var(--sans); font-size: 14px }
+  .cta-strip-actions{ display: flex; justify-content: flex-end }
+  .btn{
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 13px 20px; border-radius: 999px;
+    font-family: var(--sans); font-weight: 600; font-size: 14px;
+    background: var(--accent); color: #0a0a0a;
+    transition: transform .15s ease, background .2s ease;
+  }
+  .btn:hover{ transform: translateY(-1px); background: #ff6a30 }
+  .btn svg{ width: 14px; height: 14px; transition: transform .2s ease }
+  .btn:hover svg{ transform: translateX(3px) }
+  @media (max-width: 720px){ .cta-strip-actions{ justify-content: flex-start } }
+
+  /* Footer */
+  .zd-footer{ background:#000; color:#fff; padding: clamp(48px, 6vw, 80px) 0 28px; margin-top: 0 }
+  .zd-top{ display:flex; justify-content:space-between; gap:24px; flex-wrap:wrap; padding-bottom:36px; border-bottom:1px solid rgba(255,255,255,.12) }
+  .zd-help{ font-family:var(--sans); font-weight:500; font-size: clamp(15px, 1.4vw, 18px); letter-spacing:.005em; line-height:1.4; color:#cfcdc4; max-width:32ch }
+  .zd-help a{ color:var(--accent); border-bottom:1px solid var(--accent); padding-bottom:1px; font-weight:600 }
+  .zd-bottom{ display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; padding-top:24px; color:#a8a69d; font-size:13px }
+  .zd-bottom a{ color:#a8a69d; margin-right:18px }
+  .zd-bottom a:hover{ color:#fff }
+  .zd-socials{ display:flex; gap:12px; flex-wrap:wrap }
+  .zd-socials a{
+    width:38px; height:38px; border-radius:50%;
+    background:rgba(255,255,255,.06);
+    display:flex; align-items:center; justify-content:center; color:#fff;
+    transition:background .2s, transform .2s;
+  }
+  .zd-socials a:hover{ background:var(--accent); transform:translateY(-2px) }
+  .zd-socials svg{ width:16px; height:16px }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="../index-v2.html" class="brand" aria-label="Clay Stan home"><img src="../logos/clay-stan-light.png" alt="Clay Stan" /></a>
+    <a href="../resources.html" class="nav-back">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      All resources
+    </a>
+  </div>
+</header>
+
+<section class="header">
+  <div class="wrap">
+    <span class="crumb"><span class="dot"></span> <a href="../resources.html">Resources</a> &middot; Calculator</span>
+    <h1 class="title">Cold email <em>ROI</em> calculator.</h1>
+    <p class="deck">Plug in your sending volume, conversion rates, and average deal size. The output panel shows what 30 days of outbound is actually worth -- pipeline, deals closed, ROI multiple, and your true cost per meeting. Move the sliders or type a number, both stay in sync.</p>
+  </div>
+</section>
+
+<section class="calc">
+  <div class="wrap">
+    <div class="calc-grid">
+
+      <!-- INPUTS -->
+      <form class="calc-inputs" id="calc-form" autocomplete="off" onsubmit="return false">
+
+        <div class="panel-head">
+          <h2>Your <em>numbers</em></h2>
+          <button type="button" class="reset-btn" id="reset-btn" aria-label="Reset to defaults">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg>
+            Reset
+          </button>
+        </div>
+
+        <!-- 1. Volume -->
+        <div class="row" data-input="emails">
+          <div class="head">
+            <label for="emails-n">
+              <span class="lbl">Emails sent / month</span>
+              <span class="hint">Total volume across all sending domains</span>
+            </label>
+            <div class="numwrap">
+              <input type="number" id="emails-n" min="500" max="100000" step="500" value="5000" />
+              <span class="suf">emails</span>
+            </div>
+          </div>
+          <input type="range" id="emails-r" min="500" max="100000" step="500" value="5000" />
+          <div class="scale"><span>500</span><span>100,000</span></div>
+        </div>
+
+        <!-- 2. Reply rate -->
+        <div class="row" data-input="reply">
+          <div class="head">
+            <label for="reply-n">
+              <span class="lbl">Reply rate</span>
+              <span class="hint">% of sent emails that get any reply</span>
+            </label>
+            <div class="numwrap">
+              <input type="number" id="reply-n" min="0.1" max="20" step="0.1" value="3" />
+              <span class="suf">%</span>
+            </div>
+          </div>
+          <input type="range" id="reply-r" min="0.1" max="20" step="0.1" value="3" />
+          <div class="scale"><span>0.1%</span><span>20%</span></div>
+        </div>
+
+        <!-- 3. Positive reply rate -->
+        <div class="row" data-input="positive">
+          <div class="head">
+            <label for="positive-n">
+              <span class="lbl">Positive reply rate</span>
+              <span class="hint">% of replies that are interested (not OOO/unsub)</span>
+            </label>
+            <div class="numwrap">
+              <input type="number" id="positive-n" min="5" max="95" step="1" value="30" />
+              <span class="suf">%</span>
+            </div>
+          </div>
+          <input type="range" id="positive-r" min="5" max="95" step="1" value="30" />
+          <div class="scale"><span>5%</span><span>95%</span></div>
+        </div>
+
+        <!-- 4. Meeting hold rate -->
+        <div class="row" data-input="hold">
+          <div class="head">
+            <label for="hold-n">
+              <span class="lbl">Meeting hold rate</span>
+              <span class="hint">% of positive replies that show up to a meeting</span>
+            </label>
+            <div class="numwrap">
+              <input type="number" id="hold-n" min="20" max="100" step="1" value="60" />
+              <span class="suf">%</span>
+            </div>
+          </div>
+          <input type="range" id="hold-r" min="20" max="100" step="1" value="60" />
+          <div class="scale"><span>20%</span><span>100%</span></div>
+        </div>
+
+        <!-- 5. Close rate -->
+        <div class="row" data-input="close">
+          <div class="head">
+            <label for="close-n">
+              <span class="lbl">Close rate</span>
+              <span class="hint">% of held meetings that become paying customers</span>
+            </label>
+            <div class="numwrap">
+              <input type="number" id="close-n" min="1" max="80" step="1" value="20" />
+              <span class="suf">%</span>
+            </div>
+          </div>
+          <input type="range" id="close-r" min="1" max="80" step="1" value="20" />
+          <div class="scale"><span>1%</span><span>80%</span></div>
+        </div>
+
+        <!-- 6. Deal size -->
+        <div class="row" data-input="deal">
+          <div class="head">
+            <label for="deal-n">
+              <span class="lbl">Average deal size</span>
+              <span class="hint">First-year revenue per closed customer (ACV)</span>
+            </label>
+            <div class="numwrap">
+              <span class="pre">$</span>
+              <input type="number" id="deal-n" min="500" max="500000" step="500" value="10000" />
+            </div>
+          </div>
+          <input type="range" id="deal-r" min="500" max="500000" step="500" value="10000" />
+          <div class="scale"><span>$500</span><span>$500K</span></div>
+        </div>
+
+        <!-- 7. Monthly investment -->
+        <div class="row" data-input="cost">
+          <div class="head">
+            <label for="cost-n">
+              <span class="lbl">Monthly investment</span>
+              <span class="hint">All-in spend: tools, infra, agency fees</span>
+            </label>
+            <div class="numwrap">
+              <span class="pre">$</span>
+              <input type="number" id="cost-n" min="500" max="50000" step="250" value="5000" />
+            </div>
+          </div>
+          <input type="range" id="cost-r" min="500" max="50000" step="250" value="5000" />
+          <div class="scale"><span>$500</span><span>$50K</span></div>
+        </div>
+
+      </form>
+
+      <!-- OUTPUT -->
+      <aside class="calc-output" aria-live="polite">
+
+        <div class="out-tag">
+          <span class="num">01</span>
+          <span class="sep">&middot;</span>
+          <span class="label">Monthly outcome</span>
+        </div>
+
+        <div class="out-hero">
+          <div class="multiple"><span id="out-roi">14.4</span><sup>&times;</sup></div>
+          <div class="label">Return on monthly investment</div>
+        </div>
+
+        <div class="out-stats">
+          <div class="stat">
+            <div class="v" id="out-revenue">$72K</div>
+            <div class="l">Closed revenue / month</div>
+          </div>
+          <div class="stat">
+            <div class="v" id="out-deals">7.2</div>
+            <div class="l">Deals closed / month</div>
+          </div>
+          <div class="stat">
+            <div class="v" id="out-meetings">36</div>
+            <div class="l">Meetings held / month</div>
+          </div>
+          <div class="stat">
+            <div class="v" id="out-cpm">$139</div>
+            <div class="l">Cost per meeting</div>
+          </div>
+        </div>
+
+        <div class="out-funnel">
+          <div class="out-funnel-head">
+            <span class="label">Funnel breakdown</span>
+            <span class="meta">monthly</span>
+          </div>
+
+          <div class="funnel-step">
+            <span class="name">Emails sent</span>
+            <span class="v" id="f-sent">5,000</span>
+            <span class="bar"><span id="bar-sent" style="width:100%"></span></span>
+          </div>
+          <div class="funnel-step">
+            <span class="name">Replies <small id="f-reply-pct">3%</small></span>
+            <span class="v" id="f-reply">150</span>
+            <span class="bar"><span id="bar-reply" style="width:3%"></span></span>
+          </div>
+          <div class="funnel-step">
+            <span class="name">Positive replies <small id="f-pos-pct">30% of replies</small></span>
+            <span class="v" id="f-pos">45</span>
+            <span class="bar"><span id="bar-pos" style="width:0.9%"></span></span>
+          </div>
+          <div class="funnel-step">
+            <span class="name">Meetings held <small id="f-met-pct">60% of positive</small></span>
+            <span class="v" id="f-met">27</span>
+            <span class="bar"><span id="bar-met" style="width:0.54%"></span></span>
+          </div>
+          <div class="funnel-step">
+            <span class="name">Deals closed <small id="f-deal-pct">20% of meetings</small></span>
+            <span class="v" id="f-deal">5.4</span>
+            <span class="bar"><span id="bar-deal" style="width:0.108%"></span></span>
+          </div>
+        </div>
+
+      </aside>
+    </div>
+
+    <!-- Methodology -->
+    <div class="methodology">
+      <h3>The math</h3>
+      <p>Each step of the funnel is a simple multiplication. Replies = <code>emails &times; reply_rate</code>. Positive replies = <code>replies &times; positive_rate</code>. Meetings held = <code>positive &times; hold_rate</code>. Deals closed = <code>meetings &times; close_rate</code>. Closed revenue = <code>deals &times; deal_size</code>. ROI multiple = <code>revenue &divide; monthly_investment</code>.</p>
+      <p>Annualized revenue is shown as monthly &times; 12. Cost per meeting = <code>monthly_investment &divide; meetings</code>. Cost per deal = <code>monthly_investment &divide; deals</code>.</p>
+      <p><strong>Realistic baselines</strong> for cold outbound to senior B2B buyers in 2026: reply rate 1.5--6%, positive-of-replies 20--40%, meeting hold rate 50--70%, close rate 10--30%. Ranges vary heavily by ICP, offer, and category. If your numbers are wildly above the high end, audit your data -- you may be counting auto-replies or holds that never converted.</p>
+    </div>
+
+    <div class="cta-strip">
+      <div>
+        <h2>Numbers look <em>off</em>?</h2>
+        <p>If your reply rate is below 1% or your cost per meeting is over $500, the issue is rarely volume -- it's the data, the copy, or the deliverability. We'll audit it for free.</p>
+      </div>
+      <div class="cta-strip-actions">
+        <a href="../index-v2.html#founder" class="btn">
+          Book a free audit
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="zd-footer">
+  <div class="wrap">
+    <div class="zd-top">
+      <div class="zd-help">
+        How can we help? <a href="https://wa.me/19177356201" target="_blank" rel="noopener">Contact us on WhatsApp.</a>
+      </div>
+      <div class="zd-socials" aria-label="Social links">
+        <a href="https://www.linkedin.com/in/talhasells/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45C23.21 24 24 23.23 24 22.28V1.72C24 .77 23.21 0 22.23 0z"/></svg></a>
+        <a href="https://www.youtube.com/@ClayStan-gtm" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8ZM9.6 15.6V8.4l6.2 3.6-6.2 3.6Z"/></svg></a>
+        <a href="https://wa.me/19177356201" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4a7.94 7.94 0 0 0-6.88 11.9L4 20l4.2-1.1a7.94 7.94 0 0 0 3.85.98h.01c4.38 0 7.94-3.56 7.94-7.94a7.88 7.88 0 0 0-2.4-5.62Zm-5.55 12.21h-.01a6.6 6.6 0 0 1-3.36-.92l-.24-.14-2.5.65.67-2.43-.16-.25a6.59 6.59 0 0 1 5.6-10.09 6.55 6.55 0 0 1 4.66 1.93 6.55 6.55 0 0 1 1.93 4.66 6.6 6.6 0 0 1-6.59 6.59Z"/></svg></a>
+      </div>
+    </div>
+    <div class="zd-bottom">
+      <div>
+        <a href="../terms.html">Terms &amp; Conditions</a>
+        <a href="../privacy.html">Privacy Notice</a>
+      </div>
+      <span>&copy; <span class="yr">2026</span> claystan LLC.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.yr').forEach(function(el){ el.textContent = new Date().getFullYear() });
+
+  // ============ COLD EMAIL ROI CALCULATOR ============
+  // Each input is a paired range slider + number input. Both stay in sync.
+  // Recompute on every input event. Pure-funnel multiplication math.
+  (function () {
+    const DEFAULTS = {
+      emails:  5000,    // emails sent / month
+      reply:   3,       // % of sends that reply
+      positive: 30,     // % of replies that are positive
+      hold:    60,      // % of positives that hold the meeting
+      close:   20,      // % of meetings that close
+      deal:    10000,   // average ACV $
+      cost:    5000     // monthly investment $
+    };
+
+    // Bind paired range + number, keep in sync, clamp on out-of-range entry
+    function bind(key) {
+      const r = document.getElementById(key + '-r');
+      const n = document.getElementById(key + '-n');
+      const min = parseFloat(r.min);
+      const max = parseFloat(r.max);
+
+      function clamp(v) {
+        if (isNaN(v)) return min;
+        return Math.min(max, Math.max(min, v));
+      }
+      function syncTrack(val) {
+        const pct = ((val - min) / (max - min)) * 100;
+        r.style.setProperty('--pct', pct + '%');
+      }
+
+      r.addEventListener('input', function () {
+        n.value = r.value;
+        syncTrack(parseFloat(r.value));
+        recalc();
+      });
+      n.addEventListener('input', function () {
+        // Don't clamp while user is typing -- only when they leave the field
+        const v = parseFloat(n.value);
+        if (!isNaN(v) && v >= min && v <= max) {
+          r.value = v;
+          syncTrack(v);
+          recalc();
+        }
+      });
+      n.addEventListener('blur', function () {
+        const v = clamp(parseFloat(n.value));
+        n.value = v;
+        r.value = v;
+        syncTrack(v);
+        recalc();
+      });
+
+      syncTrack(parseFloat(r.value));
+    }
+
+    Object.keys(DEFAULTS).forEach(bind);
+
+    // Format helpers
+    function fmtMoney(v) {
+      if (v >= 1_000_000) return '$' + (v / 1_000_000).toFixed(v % 1_000_000 === 0 ? 0 : 1) + 'M';
+      if (v >= 1_000)     return '$' + (v / 1_000).toFixed(v % 1_000 === 0 ? 0 : 1) + 'K';
+      return '$' + Math.round(v).toLocaleString();
+    }
+    function fmtMoneyExact(v) {
+      return '$' + Math.round(v).toLocaleString();
+    }
+    function fmtCount(v) {
+      if (v < 10) return v.toFixed(1);
+      return Math.round(v).toLocaleString();
+    }
+    function fmtMultiple(v) {
+      if (v >= 100) return Math.round(v).toLocaleString();
+      return v.toFixed(1);
+    }
+
+    function getNum(key) {
+      const el = document.getElementById(key + '-n');
+      const v = parseFloat(el.value);
+      return isNaN(v) ? DEFAULTS[key] : v;
+    }
+
+    function recalc() {
+      const emails   = getNum('emails');
+      const reply    = getNum('reply') / 100;
+      const positive = getNum('positive') / 100;
+      const hold     = getNum('hold') / 100;
+      const close    = getNum('close') / 100;
+      const deal     = getNum('deal');
+      const cost     = getNum('cost');
+
+      // Funnel
+      const replies      = emails * reply;
+      const posReplies   = replies * positive;
+      const meetingsHeld = posReplies * hold;
+      const dealsClosed  = meetingsHeld * close;
+      const revenue      = dealsClosed * deal;
+
+      // Derived
+      const roi   = cost > 0 ? revenue / cost : 0;
+      const cpm   = meetingsHeld > 0 ? cost / meetingsHeld : 0;
+      // const cpd   = dealsClosed > 0 ? cost / dealsClosed : 0;
+
+      // ===== Hero =====
+      document.getElementById('out-roi').textContent = fmtMultiple(roi);
+
+      // ===== Sub-stats =====
+      document.getElementById('out-revenue').textContent  = fmtMoney(revenue);
+      document.getElementById('out-deals').textContent    = fmtCount(dealsClosed);
+      document.getElementById('out-meetings').textContent = fmtCount(meetingsHeld);
+      document.getElementById('out-cpm').textContent      = meetingsHeld > 0 ? fmtMoneyExact(cpm) : '—';
+
+      // ===== Funnel breakdown =====
+      document.getElementById('f-sent').textContent = Math.round(emails).toLocaleString();
+      document.getElementById('f-reply').textContent = fmtCount(replies);
+      document.getElementById('f-pos').textContent   = fmtCount(posReplies);
+      document.getElementById('f-met').textContent   = fmtCount(meetingsHeld);
+      document.getElementById('f-deal').textContent  = fmtCount(dealsClosed);
+
+      document.getElementById('f-reply-pct').textContent = (getNum('reply')).toFixed(1) + '% of sent';
+      document.getElementById('f-pos-pct').textContent   = getNum('positive') + '% of replies';
+      document.getElementById('f-met-pct').textContent   = getNum('hold')     + '% of positive';
+      document.getElementById('f-deal-pct').textContent  = getNum('close')    + '% of meetings';
+
+      // Bar widths (relative to emails sent volume)
+      const baseDenom = Math.max(1, emails);
+      const barReply = (replies / baseDenom) * 100;
+      const barPos   = (posReplies / baseDenom) * 100;
+      const barMet   = (meetingsHeld / baseDenom) * 100;
+      const barDeal  = (dealsClosed / baseDenom) * 100;
+
+      // Use a logarithmic-ish boost so tiny percentages still show a visible sliver
+      function showBar(pct) {
+        if (pct <= 0) return 0;
+        // emphasize visibility while keeping relative proportion
+        return Math.min(100, Math.max(1.5, pct * (pct < 1 ? 8 : (pct < 10 ? 4 : 1.5))));
+      }
+      document.getElementById('bar-sent').style.width  = '100%';
+      document.getElementById('bar-reply').style.width = showBar(barReply) + '%';
+      document.getElementById('bar-pos').style.width   = showBar(barPos) + '%';
+      document.getElementById('bar-met').style.width   = showBar(barMet) + '%';
+      document.getElementById('bar-deal').style.width  = showBar(barDeal) + '%';
+    }
+
+    // Reset
+    document.getElementById('reset-btn').addEventListener('click', function () {
+      Object.keys(DEFAULTS).forEach(function (k) {
+        const r = document.getElementById(k + '-r');
+        const n = document.getElementById(k + '-n');
+        r.value = DEFAULTS[k];
+        n.value = DEFAULTS[k];
+        const min = parseFloat(r.min);
+        const max = parseFloat(r.max);
+        const pct = ((DEFAULTS[k] - min) / (max - min)) * 100;
+        r.style.setProperty('--pct', pct + '%');
+      });
+      recalc();
+    });
+
+    recalc();
+  })();
+</script>
+<script src="../clay-stan-logo.js" defer></script>
+</body>
+</html>

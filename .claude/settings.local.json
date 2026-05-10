@@ -1,0 +1,32 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.verticalgtm.com)",
+      "Read(//c/Users/User/Downloads/**)",
+      "Bash(unzip -p \"Case Studies - ClayStan.docx\" word/document.xml)",
+      "Read(//tmp/**)",
+      "Bash(node -e ' *)",
+      "Bash(unzip -p \"/c/Users/User/Downloads/Case Studies - ClayStan.docx\" word/document.xml)",
+      "Bash(unzip -o \"/c/Users/User/Downloads/Case Studies - ClayStan.docx\" \"word/media/*\" -d \"/c/Users/User/gtm-agency-website/case-studies/neonvest/\")",
+      "Bash(mv \"word/media/image7.png\" \"01-pipeline-before.png\")",
+      "Bash(mv \"word/media/image6.png\" \"02-after-12-reply.png\")",
+      "Bash(mv \"word/media/image9.png\" \"03-li-59-reply.png\")",
+      "Bash(mv \"word/media/image3.png\" \"04-li-39-reply.png\")",
+      "Bash(mv \"word/media/image1.png\" \"05-li-32-reply.png\")",
+      "Bash(unzip -p \"/c/Users/User/Downloads/Case Studies - ClayStan \\(1\\).docx\" word/document.xml)",
+      "Bash(unzip -o \"/c/Users/User/Downloads/Case Studies - ClayStan \\(1\\).docx\" \"word/media/*\" -d \"/c/Users/User/gtm-agency-website/case-studies/pulsift/\")",
+      "Bash(mv \"word/media/image1.png\" \"01-sami-whatsapp.png\")",
+      "Bash(mv \"word/media/image2.jpg\" \"02-radnor-dashboard.jpg\")",
+      "Bash(rm -rf word)",
+      "Read(//c/c/Users/User/gtm-agency-website/case-studies/**)",
+      "Bash(unzip -p \"/c/Users/User/Downloads/Case Studies - ClayStan \\(2\\).docx\" word/document.xml)",
+      "Bash(unzip -o \"/c/Users/User/Downloads/Case Studies - ClayStan \\(2\\).docx\" \"word/media/*\" -d \"/c/Users/User/gtm-agency-website/case-studies/sute/\")",
+      "Bash(mv \"word/media/image9.png\" \"01-draper.png\")",
+      "Bash(mv \"word/media/image3.png\" \"02-bonfire.png\")",
+      "Bash(mv \"word/media/image6.png\" \"03-mucker.png\")",
+      "Bash(mv \"word/media/image8.png\" \"04-kibo.png\")",
+      "Bash(mv \"word/media/image2.png\" \"05-openocean.png\")",
+      "Bash(grep -v \"^total\\\\|^d\\\\|^\\\\\\\\.\\\\\\\\.\")"
+    ]
+  }
+}

@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Case Studies | Clay Stan</title>
+<meta name="description" content="Real founders. Real numbers. Browse Clay Stan's full case study library -- pipeline rebuilds, agency partnerships, and the screenshots to back it all up." />
+
+<link rel="preconnect" href="https://api.fontshare.com" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,600,700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<link rel="icon" type="image/png" href="logos/clay-stan-light.png" />
+
+<style>
+  :root{
+    --bg:#F6F4EE; --ink:#0F0F10; --ink-2:#2A2A2C; --muted:#6E6E73;
+    --line:#E4E0D7; --line-2:#D8D3C7; --card:#FFFFFF;
+    --accent:#FF5A1F;
+    --r-lg:24px;
+    --maxw:1240px;
+    --pad:clamp(16px, 5vw, 56px);
+    --sans:'Vanilla Sans','Satoshi','Inter',system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    --serif:'Instrument Serif','Times New Roman',serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{
+    background-color:var(--bg);
+    background-image:
+      linear-gradient(to right, rgba(15,15,16,.022) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(15,15,16,.022) 1px, transparent 1px);
+    background-size: 96px 96px;
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:16px; line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--ink); text-decoration:none}
+  img{max-width:100%; display:block}
+
+  .wrap{max-width:var(--maxw); margin:0 auto; padding-left:var(--pad); padding-right:var(--pad)}
+
+  /* Nav (matches homepage pill) */
+  .nav{ position:sticky; top: clamp(10px,1.4vw,18px); z-index:50; padding: 0 var(--pad) }
+  .nav-inner{
+    max-width: 980px; margin: 0 auto; height: 64px;
+    padding: 6px 6px 6px 16px;
+    background: rgba(255,255,255,.78);
+    backdrop-filter: blur(20px) saturate(150%);
+    border:1px solid rgba(15,15,16,.08); border-radius: 999px;
+    box-shadow: 0 8px 28px -10px rgba(15,15,16,.10), 0 1px 0 rgba(255,255,255,.5) inset;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .brand{display:inline-flex; align-items:center; gap:10px}
+  .brand img{ height:44px; width:auto }
+  .nav-back{
+    display:inline-flex; align-items:center; gap:8px;
+    padding: 9px 16px; border:1px solid var(--line-2); border-radius:999px;
+    font-size:14px; font-weight:500; color:var(--ink-2);
+    transition: background .2s, color .2s, border-color .2s;
+  }
+  .nav-back:hover{background:#fff; color:var(--ink); border-color:var(--ink)}
+
+  /* Header */
+  .hero{
+    padding: clamp(56px, 8vw, 112px) 0 clamp(36px, 5vw, 56px);
+    text-align: center;
+  }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:var(--sans); font-weight:500; font-size:11px;
+    letter-spacing:.18em; text-transform:uppercase; color:var(--muted);
+  }
+  .eyebrow .dot{width:6px; height:6px; border-radius:50%; background:var(--accent)}
+  .display{
+    margin: clamp(16px, 2.4vw, 26px) auto 0;
+    font-family:var(--sans); font-weight:500;
+    font-size: clamp(40px, 7vw, 92px);
+    line-height:1; letter-spacing: -.035em;
+    max-width: 16ch;
+  }
+  .display em{ font-family:var(--serif); font-style:italic; font-weight:400 }
+  .lede{
+    margin: clamp(18px, 2.4vw, 28px) auto 0;
+    font-size: clamp(17px, 1.5vw, 19px); line-height:1.55; color:var(--ink-2);
+    max-width: 56ch;
+  }
+
+  /* Aggregate stats banner */
+  .agg{
+    margin-top: clamp(36px, 5vw, 56px);
+    display:grid; grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+  }
+  @media (max-width: 720px){ .agg{ grid-template-columns: repeat(2, 1fr) } }
+  .agg-stat{
+    padding: clamp(20px, 3vw, 28px) 18px;
+    text-align: left;
+    border-right: 1px solid var(--line);
+  }
+  .agg-stat:last-child{ border-right:0 }
+  @media (max-width: 720px){
+    .agg-stat:nth-child(2n){ border-right:0 }
+    .agg-stat:nth-child(-n+2){ border-bottom: 1px solid var(--line) }
+  }
+  .agg-stat .n{
+    font-family:var(--sans); font-weight:500;
+    font-size: clamp(28px, 3.6vw, 44px);
+    line-height: 1; letter-spacing: -.03em;
+  }
+  .agg-stat .n sup{ font-size:.5em; font-weight:600; color:var(--accent); margin-left:3px }
+  .agg-stat .l{ font-weight:600; font-size:13px; margin-top:8px }
+  .agg-stat .c{ font-size:12px; color:var(--muted); margin-top:2px }
+
+  /* Filter bar */
+  .filters{
+    padding: clamp(40px, 5vw, 64px) 0 clamp(20px, 3vw, 32px);
+    display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between;
+    gap: 14px;
+  }
+  .filter-row{
+    display:flex; flex-wrap:wrap; gap: 8px;
+  }
+  .filter-btn{
+    border: 1px solid var(--line);
+    background: #fff;
+    padding: 9px 16px;
+    border-radius: 999px;
+    font-family: var(--sans); font-weight: 500;
+    font-size: 13px; color: var(--ink-2);
+    cursor: pointer;
+    transition: background .2s, color .2s, border-color .2s;
+  }
+  .filter-btn:hover{ border-color: var(--ink); color: var(--ink) }
+  .filter-btn.active{
+    background: var(--ink); color: var(--bg); border-color: var(--ink);
+  }
+  .filter-count{
+    font-size: 13px; color: var(--muted);
+    font-family: var(--sans); font-weight: 500;
+  }
+  .filter-count b{ color: var(--ink); font-weight: 600 }
+
+  /* Case studies grid */
+  .cases-section{ padding-bottom: clamp(64px, 8vw, 104px) }
+  .case-grid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(16px, 2.4vw, 24px);
+  }
+  @media (max-width: 980px){ .case-grid{ grid-template-columns: 1fr 1fr } }
+  @media (max-width: 640px){ .case-grid{ grid-template-columns: 1fr } }
+
+  .case-card{
+    display:flex; flex-direction:column;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius: var(--r-lg);
+    overflow:hidden;
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease, opacity .25s;
+    color:var(--ink);
+    height:100%;
+    text-align:left;
+  }
+  .case-card:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 26px 50px -24px rgba(15,15,16,.24);
+    border-color: var(--line-2);
+  }
+  .case-card.hide{ display:none }
+
+  .case-thumb{
+    aspect-ratio: 16 / 10;
+    position:relative;
+    overflow:hidden;
+    background: linear-gradient(135deg, #FFD7C2 0%, #FF5A1F 100%);
+  }
+  .case-thumb .ribbon{
+    position:absolute; top:14px; left:14px;
+    background: rgba(255,255,255,.94);
+    color: var(--ink);
+    font-size: 11px; font-weight:600; padding: 5px 10px;
+    border-radius: 999px;
+  }
+  .case-thumb .case-headline-stat{
+    position:absolute; inset: auto 0 0 0;
+    padding: clamp(16px, 2vw, 22px);
+    color:#fff;
+    background: linear-gradient(180deg, transparent, rgba(15,15,16,.55) 70%, rgba(15,15,16,.78));
+  }
+  .case-thumb .case-headline-stat .big{
+    font-family:var(--sans); font-weight:500;
+    font-size: clamp(28px, 3.4vw, 44px);
+    line-height: 1; letter-spacing: -.025em;
+  }
+  .case-thumb .case-headline-stat .big sup{
+    font-size:.5em; font-weight:600; vertical-align:super; margin-left:2px;
+  }
+  .case-thumb .case-headline-stat .label{
+    font-size: 12px; font-weight:500; margin-top: 6px; opacity:.92;
+  }
+
+  .case-body{
+    padding: clamp(18px, 2vw, 22px);
+    display:flex; flex-direction:column; gap: 10px;
+    flex: 1;
+  }
+  .case-body .company{
+    font-family:var(--sans); font-weight:500; font-size:11px;
+    color: var(--muted); letter-spacing:.16em; text-transform:uppercase;
+  }
+  .case-body h3{
+    font-family:var(--sans); font-weight:600;
+    font-size: clamp(17px, 1.5vw, 20px); letter-spacing:-.005em; line-height:1.25;
+    margin: 0;
+  }
+  .case-body p{
+    font-size: 14px; color: var(--ink-2); line-height:1.5;
+    margin: 0;
+  }
+  .case-tags{ display:flex; flex-wrap:wrap; gap:6px; margin-top: 4px }
+  .case-tags span{
+    font-size:11px; font-weight:500; padding: 4px 9px;
+    background: #FBFAF6; border:1px solid var(--line); border-radius:999px;
+    color: var(--ink-2);
+  }
+  .case-card .case-go{
+    margin-top: auto; padding-top: 14px;
+    display:inline-flex; align-items:center; gap:8px;
+    font-size: 13px; font-weight:600; color: var(--ink);
+    transition: color .2s ease;
+  }
+  .case-card:hover .case-go{ color: var(--accent) }
+  .case-card .case-go svg{ width: 14px; height:14px; transition: transform .2s ease }
+  .case-card:hover .case-go svg{ transform: translateX(3px) }
+
+  /* Empty state for filters */
+  .empty{
+    text-align:center; padding: 56px 20px;
+    color: var(--muted); font-size: 15px;
+  }
+  .empty.hide{ display:none }
+
+  /* CTA strip */
+  .cta-strip{
+    margin-top: clamp(56px, 7vw, 96px);
+    padding: clamp(32px, 4vw, 56px);
+    background: var(--ink); color:#fff;
+    border-radius: 24px;
+    display:grid; grid-template-columns: 1.6fr 1fr;
+    gap: 28px; align-items:center;
+    position:relative; overflow:hidden;
+  }
+  .cta-strip::before{
+    content:""; position:absolute; inset:auto -10% -40% auto; width:50%; aspect-ratio:1;
+    background: radial-gradient(closest-side, rgba(255,90,31,.22), transparent 70%);
+    pointer-events:none;
+  }
+  @media (max-width: 820px){ .cta-strip{ grid-template-columns: 1fr } }
+  .cta-strip h2{
+    margin: 0; color:#fff; font-weight: 500;
+    font-size: clamp(26px, 3.2vw, 38px); letter-spacing: -.02em;
+    line-height: 1.1;
+    position: relative;
+  }
+  .cta-strip h2 em{ font-family:var(--serif); font-style:italic; font-weight:400 }
+  .cta-strip p{ color:#cfcdc4; margin: 12px 0 0; max-width: 50ch; position:relative }
+  .cta-strip-actions{ display:flex; justify-content:flex-end; position:relative }
+  .btn{
+    display:inline-flex; align-items:center; gap:10px;
+    padding: 14px 22px; border-radius: 999px;
+    font-family:var(--sans); font-weight:600; font-size:15px;
+    background: var(--accent); color:#0a0a0a;
+    transition: transform .15s ease, background .2s ease;
+  }
+  .btn:hover{ transform: translateY(-1px); background:#ff6a30 }
+  .btn svg{ width:16px; height:16px; transition: transform .2s ease }
+  .btn:hover svg{ transform: translateX(3px) }
+  @media (max-width: 820px){ .cta-strip-actions{ justify-content:flex-start } }
+
+  /* Footer */
+  .zd-footer{ background:#000; color:#fff; padding: clamp(48px, 6vw, 80px) 0 28px; margin-top: 0 }
+  .zd-top{ display:flex; justify-content:space-between; gap:24px; flex-wrap:wrap; padding-bottom:36px; border-bottom:1px solid rgba(255,255,255,.12) }
+  .zd-help{ font-family:var(--sans); font-weight:500; font-size: clamp(15px, 1.4vw, 18px); letter-spacing:.005em; line-height:1.4; color:#cfcdc4; max-width:32ch }
+  .zd-help a{ color:var(--accent); border-bottom:1px solid var(--accent); padding-bottom:1px; font-weight:600 }
+  .zd-bottom{ display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; padding-top:24px; color:#a8a69d; font-size:13px }
+  .zd-bottom a{ color:#a8a69d; margin-right:18px }
+  .zd-bottom a:hover{ color:#fff }
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index-v2.html" class="brand" aria-label="Clay Stan home">
+      <img src="logos/clay-stan-light.png" alt="Clay Stan" />
+    </a>
+    <a href="index-v2.html" class="nav-back">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to home
+    </a>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow"><span class="dot"></span> Case studies</span>
+    <h1 class="display">Real founders. <em>Real numbers.</em></h1>
+    <p class="lede">Each story is a full breakdown. The audit, the rebuild, the screenshots, the founder on camera. No vanity metrics.</p>
+
+    <!-- Aggregate stats -->
+    <div class="agg" aria-label="Aggregate results">
+      <div class="agg-stat">
+        <div class="n">1M<sup>+</sup></div>
+        <div class="l">Emails sent</div>
+        <div class="c">Across all client engagements</div>
+      </div>
+      <div class="agg-stat">
+        <div class="n">17<sup>%</sup></div>
+        <div class="l">Top email reply rate</div>
+        <div class="c">Achieved twice across campaigns</div>
+      </div>
+      <div class="agg-stat">
+        <div class="n">60<sup>%</sup></div>
+        <div class="l">Top LinkedIn reply rate</div>
+        <div class="c">Single best-performing campaign</div>
+      </div>
+      <div class="agg-stat">
+        <div class="n">34</div>
+        <div class="l">Meetings in one month</div>
+        <div class="c">Top of the line for a single client</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Filters + Grid -->
+<section class="cases-section">
+  <div class="wrap">
+
+    <!-- Filter bar -- pipe-separated values let one button match multiple tags -->
+    <div class="filters" id="filters" role="tablist" aria-label="Filter case studies by segment">
+      <div class="filter-row">
+        <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All</button>
+        <button class="filter-btn" data-filter="investor-outreach" role="tab">Investor outreach</button>
+        <button class="filter-btn" data-filter="ai|saas" role="tab">AI / SaaS</button>
+        <button class="filter-btn" data-filter="climate|deeptech" role="tab">Climate / DeepTech</button>
+        <button class="filter-btn" data-filter="biopharma" role="tab">Biopharma</button>
+        <button class="filter-btn" data-filter="marketplace" role="tab">Marketplace</button>
+        <button class="filter-btn" data-filter="events" role="tab">Events</button>
+        <button class="filter-btn" data-filter="sales-motion" role="tab">Sales motion</button>
+        <button class="filter-btn" data-filter="agency" role="tab">Agency partnerships</button>
+      </div>
+      <div class="filter-count" id="filter-count">Showing <b>13</b> case studies</div>
+    </div>
+
+    <!-- Grid -->
+    <div class="case-grid" id="case-grid">
+
+      <!-- NeonVest -->
+      <a href="case-studies/neonvest.html" class="case-card" data-segments="investor-outreach saas">
+        <div class="case-thumb">
+          <span class="ribbon">Investor SaaS</span>
+          <div class="case-headline-stat">
+            <div class="big">$200K<sup>+</sup></div>
+            <div class="label">ARR pipeline in &lt; 2 weeks</div>
+          </div>
+        </div>
+        <div class="case-body">
+          <span class="company">NeonVest &middot; Rohit Pursram</span>
+          <h3>From zero replies to 12% reply campaigns and 34 booked meetings.</h3>
+          <p>Stalled revenue. Two failed agencies. We rebuilt the offer, the infrastructure, and the playbook. New trajectory in two weeks.</p>
+          <div class="case-tags">
+            <span>Outbound rebuild</span>
+            <span>Email + LinkedIn</span>
+            <span>Clay workflows</span>
+          </div>
+          <span class="case-go">Read the full story <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+
+      <!-- Sute -->
+      <a href="case-studies/sute.html" class="case-card" data-segments="investor-outreach ai saas">
+        <div class="case-thumb" style="background:linear-gradient(135deg,#0F0F10 0%,#3B3B3D 100%)">
+          <span class="ribbon">AI Native Workspace</span>
+          <div class="case-headline-stat">
+            <div class="big">101</div>
+            <div class="label">Investor replies in 2 weeks &middot; 41 positive</div>
+          </div>
+        </div>
+        <div class="case-body">
+          <span class="company">Sute &middot; Sathi Roy &middot; $9M Seed</span>
+          <h3>101 investor replies for a $9M seed round.</h3>
+          <p>Built the investor universe from scratch. Personalized every subject line. Two weeks: 101 replies, 41 positive, deck requests from a fundraising fantasy team.</p>
+          <div class="case-tags"><span>Investor outreach</span><span>Seed fundraising</span><span>Cold email</span></div>
+          <span class="case-go">Read the full story <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+
+      <!-- Pulsift x Radnor Eyewear -->
+      <a href="case-studies/pulsift.html" class="case-card" data-segments="agency marketplace">
+        <div class="case-thumb" style="background:linear-gradient(135deg,#7C3AED 0%,#2563EB 100%)">
+          <span class="ribbon">B2B Eyewear</span>
+          <div class="case-headline-stat">
+            <div class="big">$150K</div>
+            <div class="label">Pipeline in days &middot; via agency partnership</div>
+          </div>
+        </div>
+        <div class="case-body">
+          <span class="company">Pulsift &times; Radnor &middot; Sami Maati</span>
+          <h3>3 positive replies in 3 hours of campaign launch.</h3>
+          <p>Pulsift brought us in as fulfillment for a Shenzhen eyewear manufacturer. Co-built the offer, shipped fast, hit $150K of pipeline.</p>
+          <div class="case-tags"><span>Email outreach</span><span>Agency partnership</span><span>Fast launch</span></div>
+          <span class="case-go">Read the full story <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+
+      <!-- HR World Media -->
+      <a href="case-studies/hr-world-media.html" class="case-card" data-segments="events">
+        <div class="case-thumb" style="background:linear-gradient(135deg,#1F7A4D 0%,#0F4D2F 100%)">
+          <span class="ribbon">Event sales</span>
+          <div class="case-headline-stat">
+            <div class="big">90.20<sup>%</sup></div>
+            <div class="label">Positive reply rate &middot; hero campaign</div>
+          </div>
+        </div>
+        <div class="case-body">
+          <span class="company">HR World Media &middot; EU + Middle East summits</span>
+          <h3>Filled an EU summit's seats hitting 150% of quota.</h3>
+          <p>Six tracked campaigns into senior HR leaders across Europe, Africa, and the Middle East. €22K+ pipeline, €15K+ closed, 0.28% bounce.</p>
+          <div class="case-tags"><span>Event sales</span><span>Cold email + calls</span><span>Senior exec audience</span></div>
+          <span class="case-go">Read the full story <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+
+      <!-- Interlude Biopharma -->
+      <a href="case-studies/interlude-biopharma.html" class="case-card" data-segments="investor-outreach biopharma">
+        <div class="case-thumb" style="background:linear-gradient(135deg,#DC2626 0%,#7F1D1D 100%)">
+          <span class="ribbon">Biopharma</span>
+          <div class="case-headline-stat">
+            <div class="big">66</div>
+            <div class="label">Investor replies &middot; 51.5% positive</div>
+          </div>
+        </div>
+        <div class="case-body">
+          <span class="company">Interlude Biopharma &middot; $35M raise</span>
+          <h3>Replies from a16z, Bain Capital, IvyCap, Earlybird.</h3>
+          <p>1,876 investors contacted across six sequenced campaigns for a celiac therapeutic (Larazotide) raise. 34 of 66 replies came in positive.</p>
+          <div class="case-tags"><span>Biopharma</span><span>$35M raise</span><span>Cold email</span></div>
+          <span class="case-go">Read the full story <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+
+      <!-- Jump Aero -->
+      <a href="case-studies/jumpaero.html" class="case-card" data-segments="investor-outreach deeptech">
+        <div class="case-thumb" style="background:linear-gradient(135deg,#1E3A8A 0%,#0F172A 100%)">
+          <span class="ribbon">eVTOL / Defense</span>
+          <div class="case-headline-stat">
+            <div class="big">67</div>
+            <div class="label">Investor replies &middot; 61.19% positive</div>
+          </div>
+        </div>
+        <div class="case-body">
+          <span class="company">Jump Aero &middot; Carl Dietrich &middot; $2.5M Seed</span>
+          <h3>76% positive reply rate on Campaign 01 alone.</h3>
+          <p>eVTOL aircraft for emergency medical services and defense. Founder is MIT PhD and Lemelson-MIT Prize winner. Outbound matched the credibility.</p>
+          <div class="case-tags"><span>DeepTech</span><span>Defense / Aviation</span><span>Seed fundraising</span></div>
+          <span class="case-go">Read the full story <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+
+      <!-- ServiceMob -->
+      <a href="case-studies/servicemob.html" class="case-card" data-segments="investor-outreach saas">
+        <div class="case-thumb" style="background:linear-gradient(135deg,#0EA5E9 0%,#0C4A6E 100%)">
+          <span class="ribbon">B2B SaaS</span>
+          <div class="case-headline-stat">
+            <div class="big">70.7<sup>%</sup></div>
+            <div class="label">Positive reply rate &middot; 41 replies</div>
+          </div>
+        </div>
+        <div class="case-body">
+          <span class="company">ServiceMob &middot; neonVest portfolio</span>
+          <h3>Tight, personalized outbound. 76.92% positive on Campaign 02.</h3>
+          <p>Two campaigns into a focused investor segment. Replies from Airtree, Cherry Ventures, Breega, 3one4 Capital, 42CAP, Anicut.</p>
+          <div class="case-tags"><span>B2B SaaS</span><span>Investor outreach</span><span>Personalized</span></div>
+          <span class="case-go">Read the full story <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+
+      <!-- Verdethos -->
+      <a href="case-studies/verdethos.html" class="case-card" data-segments="investor-outreach climate saas">
+        <div class="case-thumb" style="background:linear-gradient(135deg,#65A30D 0%,#365314 100%)">
+          <span class="ribbon">EUDR Compliance</span>
+          <div class="case-headline-stat">
+            <div class="big">62</div>
+            <div class="label">Investor replies &middot; 56.45% positive</div>
+          </div>
+        </div>
+        <div class="case-body">
+          <span class="company">Verdethos &middot; Aidan Dowdle &middot; $2M Seed</span>
+          <h3>Replies from SBI Group, Verdane, Alumni Ventures, BITKRAFT.</h3>
+          <p>SaaS for agricultural commodity supply chains, with EUDR compliance as the wedge. 70% positive reply rate on Campaign 02.</p>
+          <div class="case-tags"><span>Climate SaaS</span><span>Compliance</span><span>$2M raise</span></div>
+          <span class="case-go">Read the full story <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+
+      <!-- Sunspan -->
+      <a href="case-studies/sunspan.html" class="case-card" data-segments="investor-outreach climate deeptech">
+        <div class="case-thumb" style="background:linear-gradient(135deg,#F59E0B 0%,#92400E 100%)">
+          <span class="ribbon">Solar / Cleantech</span>
+          <div class="case-headline-stat">
+            <div class="big">58</div>
+            <div class="label">Investor replies &middot; 40% positive</div>
+          </div>
+        </div>
+        <div class="case-body">
+          <span class="company">Sunspan &middot; Dr. Christopher Barnes</span>
+          <h3>Replies from GFT, Climentum Capital, Capital T, Archangel.</h3>
+          <p>Tubular solar panels for industrial roofs, parking lots, floating solar, and agrisolar. NSF/DOE validated, UC Davis tested.</p>
+          <div class="case-tags"><span>Climate</span><span>DeepTech</span><span>Pre-revenue seed</span></div>
+          <span class="case-go">Read the full story <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+
+      <!-- Deep Real / TWYN -->
+      <a href="case-studies/deepreal.html" class="case-card" data-segments="investor-outreach ai">
+        <div class="case-thumb" style="background:linear-gradient(135deg,#9333EA 0%,#3B0764 100%)">
+          <span class="ribbon">AI / Media</span>
+          <div class="case-headline-stat">
+            <div class="big">46</div>
+            <div class="label">Investor replies &middot; $5M convertible</div>
+          </div>
+        </div>
+        <div class="case-body">
+          <span class="company">Deep Real (TWYN) &middot; neonVest portfolio</span>
+          <h3>$30M of R&amp;D, partnerships with Messi, WWE, Bear Grylls.</h3>
+          <p>Retrieval-not-generation AI human-presence platform. US patent on the &ldquo;Invisible Cut&rdquo; transition. Replies from Gilde Healthcare, Intudo, Watermark, Plum Alley, Blue Lake VC.</p>
+          <div class="case-tags"><span>AI</span><span>Media tech</span><span>$5M convertible</span></div>
+          <span class="case-go">Read the full story <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+
+      <!-- Handmade.com / NOVICA -->
+      <a href="case-studies/novica.html" class="case-card" data-segments="investor-outreach marketplace">
+        <div class="case-thumb" style="background:linear-gradient(135deg,#EA580C 0%,#7C2D12 100%)">
+          <span class="ribbon">Marketplace</span>
+          <div class="case-headline-stat">
+            <div class="big">25</div>
+            <div class="label">Investor replies &middot; 2 campaigns</div>
+          </div>
+        </div>
+        <div class="case-body">
+          <span class="company">Handmade.com / NOVICA &middot; neonVest portfolio</span>
+          <h3>Replies from Gaorong Capital, Nesta, BankTech, Vesta Ventures.</h3>
+          <p>Video-first artisan marketplace built on NOVICA's 25-year platform. $25M TTM revenue, $140M+ paid to artisans.</p>
+          <div class="case-tags"><span>Marketplace</span><span>Commerce</span><span>Video-first</span></div>
+          <span class="case-go">Read the full story <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+
+      <!-- RagMetrics -->
+      <a href="case-studies/ragmetrics.html" class="case-card" data-segments="investor-outreach ai saas">
+        <div class="case-thumb" style="background:linear-gradient(135deg,#0F0F10 0%,#FF5A1F 100%)">
+          <span class="ribbon">AI infrastructure</span>
+          <div class="case-headline-stat">
+            <div class="big">5</div>
+            <div class="label">Tier-1 partner deck requests in one campaign</div>
+          </div>
+        </div>
+        <div class="case-body">
+          <span class="company">RagMetrics &middot; $2M SAFE</span>
+          <h3>Greylock, Madrona, Scale VP, Eniac, Radical -- one campaign.</h3>
+          <p>679 partners contacted, 5.19% reply rate against partner-level inboxes (typical: 1--2%), 0% bounce. Five qualified deck requests from brand-name AI funds.</p>
+          <div class="case-tags"><span>AI infrastructure</span><span>Developer tools</span><span>Tier-1 VCs</span></div>
+          <span class="case-go">Read the full story <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+
+      <!-- BackEngine -->
+      <a href="case-studies/backengine.html" class="case-card" data-segments="sales-motion saas">
+        <div class="case-thumb" style="background:linear-gradient(135deg,#1F7A4D 0%,#0F0F10 100%)">
+          <span class="ribbon">LinkedIn sales motion</span>
+          <div class="case-headline-stat">
+            <div class="big">200<sup>%</sup></div>
+            <div class="label">Quota crushed &middot; 19 demos in 1 week</div>
+          </div>
+        </div>
+        <div class="case-body">
+          <span class="company">BackEngine &middot; Eli Portnoy (2x exit founder)</span>
+          <h3>From 1 meeting in March to 19 qualified demos in May Wk 1.</h3>
+          <p>LinkedIn GTM motion that mimicked a Director's tone -- not an SDR's queue. ~80% connection acceptance twice. Pulled in Jordan Crawford, Oren Greenberg &amp; Michael Sarrugia.</p>
+          <div class="case-tags"><span>LinkedIn outbound</span><span>Founder-led GTM</span><span>Customer Success ICP</span></div>
+          <span class="case-go">Read the full story <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+
+    </div>
+
+    <div class="empty hide" id="empty-state">
+      No case studies in this segment yet. Check back soon.
+    </div>
+
+    <!-- CTA strip -->
+    <div class="cta-strip">
+      <div>
+        <h2>Want to be the next <em>case study?</em></h2>
+        <p>Book a free discovery call. We&rsquo;ll review your current outbound and tell you whether we can replicate these numbers for your business.</p>
+      </div>
+      <div class="cta-strip-actions">
+        <a href="index-v2.html#founder" class="btn">
+          Book a discovery call
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="zd-footer">
+  <div class="wrap">
+    <div class="zd-top">
+      <div class="zd-help">
+        How can we help? <a href="https://wa.me/19177356201" target="_blank" rel="noopener">Contact us on WhatsApp.</a>
+      </div>
+      <div class="zd-socials" aria-label="Social links">
+        <a href="https://www.linkedin.com/in/talhasells/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45C23.21 24 24 23.23 24 22.28V1.72C24 .77 23.21 0 22.23 0z"/></svg></a>
+        <a href="https://www.youtube.com/@ClayStan-gtm" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8ZM9.6 15.6V8.4l6.2 3.6-6.2 3.6Z"/></svg></a>
+        <a href="https://wa.me/19177356201" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4a7.94 7.94 0 0 0-6.88 11.9L4 20l4.2-1.1a7.94 7.94 0 0 0 3.85.98h.01c4.38 0 7.94-3.56 7.94-7.94a7.88 7.88 0 0 0-2.4-5.62Zm-5.55 12.21h-.01a6.6 6.6 0 0 1-3.36-.92l-.24-.14-2.5.65.67-2.43-.16-.25a6.59 6.59 0 0 1 5.6-10.09 6.55 6.55 0 0 1 4.66 1.93 6.55 6.55 0 0 1 1.93 4.66 6.6 6.6 0 0 1-6.59 6.59Z"/></svg></a>
+      </div>
+    </div>
+    <div class="zd-bottom">
+      <div>
+        <a href="terms.html">Terms &amp; Conditions</a>
+        <a href="privacy.html">Privacy Notice</a>
+      </div>
+      <span>&copy; <span id="yr">2026</span> claystan LLC.</span>
+    </div>
+  </div>
+</footer>
+
+<style>
+  /* Footer socials styling (matches the small "How can we help?" treatment) */
+  .zd-socials{ display:flex; gap:12px; flex-wrap:wrap }
+  .zd-socials a{
+    width:38px; height:38px; border-radius:50%;
+    background:rgba(255,255,255,.06);
+    display:flex; align-items:center; justify-content:center; color:#fff;
+    transition:background .2s, transform .2s;
+  }
+  .zd-socials a:hover{ background:var(--accent); transform:translateY(-2px) }
+  .zd-socials svg{ width:16px; height:16px }
+</style>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // Segment filter -- supports pipe-separated multi-tag filters (e.g. "ai|saas")
+  (function () {
+    const buttons = document.querySelectorAll('.filter-btn');
+    const cards   = document.querySelectorAll('.case-card');
+    const count   = document.getElementById('filter-count');
+    const empty   = document.getElementById('empty-state');
+
+    function applyFilter(filter) {
+      let visible = 0;
+      const wanted = filter === 'all' ? null : filter.split('|');
+      cards.forEach(function (card) {
+        const segs = (card.dataset.segments || '').split(/\s+/);
+        const show = !wanted || wanted.some(function (t) { return segs.indexOf(t) !== -1; });
+        card.classList.toggle('hide', !show);
+        if (show) visible++;
+      });
+      count.innerHTML = 'Showing <b>' + visible + '</b> case stud' + (visible === 1 ? 'y' : 'ies');
+      empty.classList.toggle('hide', visible !== 0);
+    }
+
+    buttons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        buttons.forEach(function (b) { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
+        applyFilter(btn.dataset.filter);
+      });
+    });
+  })();
+</script>
+<script src="clay-stan-logo.js" defer></script>
+</body>
+</html>

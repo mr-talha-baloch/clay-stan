@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Privacy Notice | Clay Stan</title>
+<meta name="description" content="How Clay Stan collects, uses, and protects your information." />
+
+<link rel="preconnect" href="https://api.fontshare.com" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,600,700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<link rel="icon" type="image/png" href="logos/clay-stan-light.png" />
+
+<style>
+  :root{
+    --bg:#F6F4EE; --ink:#0F0F10; --ink-2:#2A2A2C; --muted:#6E6E73;
+    --line:#E4E0D7; --line-2:#D8D3C7; --card:#FFFFFF;
+    --accent:#FF5A1F;
+    --maxw:880px;
+    --pad:clamp(16px, 5vw, 56px);
+    --sans:'Vanilla Sans','Satoshi','Inter',system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:var(--sans); font-size:16px; line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--ink); text-decoration:none}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding-left:var(--pad); padding-right:var(--pad)}
+  .wrap-wide{max-width:1240px; margin:0 auto; padding-left:var(--pad); padding-right:var(--pad)}
+
+  .nav{
+    position:sticky; top:0; z-index:50;
+    backdrop-filter:saturate(140%) blur(10px);
+    background:rgba(246,244,238,.78);
+    border-bottom:1px solid transparent;
+    transition:border-color .2s ease;
+  }
+  .nav.scrolled{border-color:var(--line)}
+  .nav-inner{display:flex; align-items:center; justify-content:space-between; height:68px}
+  .brand{display:inline-flex; align-items:center; gap:10px}
+  .brand img{
+    height: 56px; width:auto; display:block;
+  }
+  @media (max-width: 520px){ .brand img{ height: 46px } }
+  .nav-back{
+    font-size:14px; font-weight:500; color:var(--ink-2);
+    display:inline-flex; align-items:center; gap:8px;
+    padding:9px 16px; border:1px solid var(--line-2); border-radius:999px;
+    transition:background .2s, border-color .2s, color .2s;
+  }
+  .nav-back:hover{background:#fff; border-color:var(--ink); color:var(--ink)}
+
+  .legal-header{
+    padding: clamp(40px, 6vw, 72px) 0 clamp(28px, 4vw, 48px);
+    border-bottom:1px solid var(--line);
+  }
+  .crumb{
+    font-family:var(--mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase;
+    color:var(--muted); display:inline-flex; align-items:center; gap:8px;
+  }
+  .crumb .dot{width:6px;height:6px;border-radius:50%;background:var(--accent)}
+  h1.legal-title{
+    margin: clamp(14px, 2vw, 22px) 0 clamp(10px, 1.6vw, 16px);
+    font-family:var(--sans); font-weight:500;
+    font-size: clamp(36px, 5.6vw, 64px);
+    letter-spacing:-.025em; line-height:1.02;
+  }
+  .legal-meta{font-family:var(--mono); font-size:12px; color:var(--muted); letter-spacing:.06em}
+
+  .legal{ padding: clamp(32px, 5vw, 64px) 0 clamp(64px, 8vw, 96px) }
+  .legal h2{
+    font-family:var(--sans); font-weight:600;
+    font-size: clamp(20px, 2.2vw, 26px); letter-spacing:-.01em;
+    margin: clamp(32px, 4vw, 48px) 0 clamp(10px, 1.4vw, 14px);
+    padding-top: clamp(20px, 3vw, 28px);
+    border-top:1px solid var(--line);
+  }
+  .legal h2:first-of-type{border-top:0; padding-top:0; margin-top:0}
+  .legal h3{
+    font-family:var(--sans); font-weight:600; font-size:17px;
+    margin: 22px 0 8px; letter-spacing:-.005em;
+  }
+  .legal p, .legal li{ color:var(--ink-2); font-size:16px; line-height:1.7 }
+  .legal p{margin: 0 0 14px}
+  .legal ul, .legal ol{padding-left:20px; margin: 0 0 16px}
+  .legal li{margin-bottom:8px}
+  .legal strong{color:var(--ink); font-weight:600}
+  .legal a{color:var(--accent); border-bottom:1px solid rgba(255,90,31,.4)}
+  .legal a:hover{border-bottom-color:var(--accent)}
+  .legal .callout{
+    margin: 24px 0;
+    padding: 18px 20px;
+    border-left: 3px solid var(--accent);
+    background:#FFF7F1;
+    border-radius: 0 8px 8px 0;
+    font-size:15px; color:var(--ink-2);
+  }
+  .legal .defs{
+    border:1px solid var(--line); background:#fff;
+    border-radius:14px; padding: 20px;
+    display:grid; gap:14px;
+  }
+  .legal .defs dt{font-weight:600; color:var(--ink); font-size:14px}
+  .legal .defs dd{margin:0; color:var(--ink-2); font-size:14px; line-height:1.6}
+
+  .zd-footer{ background:#000; color:#fff; padding: clamp(48px, 6vw, 80px) 0 28px }
+  .zd-top{
+    display:flex; justify-content:space-between; align-items:flex-start; gap:24px; flex-wrap:wrap;
+    padding-bottom:36px; border-bottom:1px solid rgba(255,255,255,.12);
+  }
+  .zd-help{
+    font-family:var(--sans); font-weight:500;
+    font-size: clamp(15px, 1.4vw, 18px);
+    letter-spacing: .005em; line-height:1.4;
+    color:#cfcdc4;
+    max-width: 32ch;
+  }
+  .zd-help a{color:var(--accent); border-bottom:2px solid var(--accent); padding-bottom:2px}
+  .zd-help a:hover{opacity:.85}
+  .zd-socials{display:flex; gap:14px; flex-wrap:wrap}
+  .zd-socials a{
+    width:40px; height:40px; border-radius:50%;
+    background:rgba(255,255,255,.06);
+    display:flex; align-items:center; justify-content:center; color:#fff;
+    transition:background .2s, transform .2s;
+  }
+  .zd-socials a:hover{background:var(--accent); transform:translateY(-2px)}
+  .zd-socials svg{width:18px;height:18px}
+  .zd-wordmark{
+    margin-top:24px;
+    font-family:'Inter','Satoshi',sans-serif; font-weight:700;
+    font-size: clamp(56px, 17vw, 240px);
+    letter-spacing:-.04em; line-height:1; padding-bottom:.08em;
+    color:#fff; user-select:none; white-space:nowrap; overflow:hidden;
+  }
+  .zd-bottom{
+    display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap;
+    padding-top:24px; color:#a8a69d; font-size:13px;
+  }
+  .zd-bottom a{color:#a8a69d; margin-right:18px; border:0}
+  .zd-bottom a:hover{color:#fff}
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="wrap-wide nav-inner">
+    <a href="index-v2.html" class="brand" aria-label="Clay Stan home">
+      <img src="logos/clay-stan-light.png" alt="Clay Stan" />
+    </a>
+    <a href="index-v2.html" class="nav-back">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to home
+    </a>
+  </div>
+</header>
+
+<section class="legal-header">
+  <div class="wrap">
+    <span class="crumb"><span class="dot"></span> Legal</span>
+    <h1 class="legal-title">Privacy Policy</h1>
+    <span class="legal-meta">Claystan LLC · Last updated: May 3, 2026</span>
+  </div>
+</section>
+
+<section class="legal">
+  <div class="wrap">
+    <p>Claystan LLC, doing business as Clay Stan (&ldquo;Clay Stan,&rdquo; &ldquo;we,&rdquo; &ldquo;our,&rdquo; or &ldquo;us&rdquo;), is a Wyoming-registered company. We collect the bare minimum information needed to run our site and respond to inquiries. We are committed to protecting your personal data, respecting your privacy rights, and we never sell your data.</p>
+
+    <h2>1. Who We Are</h2>
+    <p><strong>Controller:</strong> Claystan LLC, 30 N Gould St Ste R, Sheridan, WY 82801 &middot; <a href="tel:+19177356201">+1 917 735 6201</a></p>
+
+    <h2>2. Personal Data We Collect</h2>
+    <p>We collect the following categories of personal data:</p>
+    <ul>
+      <li><strong>Identity &amp; Contact</strong> -- First and last name, company name, role, email address, phone number, and any other information you choose to share when booking a call or filling out a form. <em>Source: You.</em></li>
+      <li><strong>Usage</strong> -- IP address, browser type and version, device type, unique device identifiers, referring URLs, exit pages, pages visited, timestamps, and time spent on each page. <em>Source: Cookies &amp; similar tech.</em></li>
+    </ul>
+    <p>We do not intentionally collect special-category data (GDPR Art. 9) or data about children under the age of 16.</p>
+
+    <h2>3. Why &amp; How We Use Your Data (Legal Bases -- GDPR Art. 6)</h2>
+    <ul>
+      <li><strong>Provide and operate our Service</strong> -- Contract (Art. 6(1)(b)).</li>
+      <li><strong>Manage your account, respond to inquiries &amp; scheduling</strong> -- Contract (Art. 6(1)(b)) and Legitimate interest (Art. 6(1)(f)).</li>
+      <li><strong>Contact you about updates or relevant offerings</strong> -- Legitimate interest (Art. 6(1)(f)) or Consent (Art. 6(1)(a)).</li>
+      <li><strong>Analyze usage to improve our Service</strong> -- Legitimate interest (Art. 6(1)(f)).</li>
+      <li><strong>Website analytics &amp; cookies</strong> -- Consent where required; otherwise Legitimate interest. See Section 9.</li>
+    </ul>
+    <p>Whenever Legitimate Interest is our basis, we have balanced our business needs against your privacy rights and concluded they are not overridden. You may object at any time (see Section 7).</p>
+
+    <h2>4. Sharing &amp; International Transfers</h2>
+    <p>We share data only in limited situations and never sell your Personal Data. We share data with the following categories of recipients:</p>
+    <ul>
+      <li><strong>Service Providers:</strong> We work with companies that help us run the site and our outreach (e.g., Calendly, email infrastructure, analytics). They access only what they need to do their job.</li>
+      <li><strong>Business Transfers:</strong> If Clay Stan is acquired or merges with another company, your data may transfer as part of that deal. We will notify you before that happens.</li>
+      <li><strong>Legal Requirements:</strong> We may disclose data if required by law, court order, or to protect our rights, property, or the safety of users or the public.</li>
+    </ul>
+    <p>Because we are U.S.-based, your information may be transferred to and stored on servers located outside your country. Where EU/UK personal data is transferred to third countries, we rely on standard approved safeguards. By using the Service, you consent to that transfer.</p>
+
+    <h2>5. Data Security</h2>
+    <p>We use commercially reasonable technical and organizational measures to protect your data. While we strive to protect your personal information, no method of transmission over the internet or storage is 100% secure, so we cannot guarantee absolute security.</p>
+
+    <h2>6. How Long We Keep Data</h2>
+    <p>We retain Personal Data only as long as needed for the purposes described in this notice, to comply with legal obligations, to resolve disputes, and to enforce our agreements. Usage Data is generally kept for a shorter period unless we need it for security or legal reasons.</p>
+
+    <h2>7. Your Rights</h2>
+    <h3>7.1 EU/UK Residents (GDPR / UK GDPR)</h3>
+    <ul>
+      <li>Access your data (Art. 15)</li>
+      <li>Rectify inaccurate data (Art. 16)</li>
+      <li>Erase your data -- &ldquo;right to be forgotten&rdquo; (Art. 17)</li>
+      <li>Restrict or object to processing (Art. 18, 21)</li>
+      <li>Withdraw consent at any time (does not affect past processing)</li>
+    </ul>
+    <p>To exercise any of these rights, email <a href="mailto:talha@claystan.com">talha@claystan.com</a>. We will respond within a reasonable timeframe. You may also lodge a complaint with your local supervisory authority.</p>
+
+    <h3>7.2 California Residents (CCPA/CPRA)</h3>
+    <p>If you are a California resident, you have the right to:</p>
+    <ul>
+      <li>Know what personal information we collect and how it is used</li>
+      <li>Delete your personal information (subject to certain exceptions)</li>
+      <li>Opt out of the sale or sharing of your personal information (Note: we do not sell personal data)</li>
+      <li>Non-discrimination for exercising your privacy rights</li>
+    </ul>
+    <p>To submit a request, email <a href="mailto:talha@claystan.com">talha@claystan.com</a>.</p>
+
+    <h2>8. Communication Preferences</h2>
+    <p>If we send you marketing communications, every message will provide a clear opt-out or unsubscribe link. Opt-out requests are honored promptly. We do not transfer unsubscribed addresses to third parties except for compliance purposes.</p>
+
+    <h2>9. Cookies &amp; Similar Technologies</h2>
+    <p>We use cookies and similar technologies to keep the site running, remember preferences, and understand how visitors use it.</p>
+    <ul>
+      <li><strong>Essential cookies:</strong> Required for the site to function. You cannot opt out of these without breaking the site.</li>
+      <li><strong>Preference cookies:</strong> Remember choices you have made so you do not have to reset them.</li>
+      <li><strong>Analytics cookies:</strong> Help us understand which pages are useful and where visitors drop off.</li>
+    </ul>
+    <p>You can disable cookies in your browser settings. If you do, parts of the site may not work as expected.</p>
+
+    <h2>10. Third-Party Links</h2>
+    <p>Our website may contain links to third-party websites. We are not responsible for their content or privacy practices. We encourage you to review their privacy policies before providing any personal data.</p>
+
+    <h2>11. Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time. Material changes will be communicated by email or displayed prominently on our Website before taking effect.</p>
+
+    <h2>12. Contact Us</h2>
+    <ul>
+      <li><strong>Email:</strong> <a href="mailto:talha@claystan.com">talha@claystan.com</a></li>
+      <li><strong>Phone:</strong> <a href="tel:+19177356201">+1 917 735 6201</a></li>
+      <li><strong>Address:</strong> Claystan LLC, 30 N Gould St Ste R, Sheridan, WY 82801</li>
+    </ul>
+  </div>
+</section>
+
+<footer class="zd-footer">
+  <div class="wrap-wide">
+    <div class="zd-top">
+      <div class="zd-help">
+        How can we help? <a href="https://wa.me/19177356201" target="_blank" rel="noopener">Contact us on WhatsApp.</a>
+      </div>
+      <div class="zd-socials" aria-label="Social links">
+        <a href="https://www.linkedin.com/in/talhasells/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45C23.21 24 24 23.23 24 22.28V1.72C24 .77 23.21 0 22.23 0z"/></svg></a>
+        <a href="https://www.youtube.com/@ClayStan-gtm" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8ZM9.6 15.6V8.4l6.2 3.6-6.2 3.6Z"/></svg></a>
+        <a href="https://wa.me/19177356201" aria-label="WhatsApp" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4a7.94 7.94 0 0 0-6.88 11.9L4 20l4.2-1.1a7.94 7.94 0 0 0 3.85.98h.01c4.38 0 7.94-3.56 7.94-7.94a7.88 7.88 0 0 0-2.4-5.62Zm-5.55 12.21h-.01a6.6 6.6 0 0 1-3.36-.92l-.24-.14-2.5.65.67-2.43-.16-.25a6.59 6.59 0 0 1 5.6-10.09 6.55 6.55 0 0 1 4.66 1.93 6.55 6.55 0 0 1 1.93 4.66 6.6 6.6 0 0 1-6.59 6.59Z"/></svg></a>
+      </div>
+    </div>
+    <div class="zd-wordmark" aria-hidden="true">clay stan</div>
+    <div class="zd-bottom">
+      <div>
+        <a href="terms.html">Terms &amp; Conditions</a>
+        <a href="privacy.html">Privacy Notice</a>
+        <a href="#">Cookie Notice</a>
+        <a href="#">Trust Center</a>
+      </div>
+      <span>© <span id="yr">2026</span> claystan LLC.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 8);
+  document.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+</script>
+<script src="clay-stan-logo.js" defer></script>
+</body>
+</html>
